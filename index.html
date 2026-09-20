@@ -14,31 +14,28 @@
     --amber:#C97C14; --amber-bg:#FDF1DE;
     --cream:#FBF7F1; --paper:#FFF;
     --ink:#1D222E; --body:#3E4759; --muted:#79829A;
-    --line:#E7E2D9;
-    --r:16px;
+    --line:#E7E2D9; --r:16px;
     --sh:0 1px 2px rgba(20,25,45,.04), 0 6px 18px rgba(20,25,45,.055);
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
   html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
   body{
     font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
-    background:var(--cream);color:var(--body);line-height:1.72;
-    font-size:16px;letter-spacing:.01em;-webkit-font-smoothing:antialiased;
-    padding-bottom:env(safe-area-inset-bottom);
+    background:var(--cream);color:var(--body);line-height:1.72;font-size:16px;
+    -webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom);
   }
   h1,h2,h3,h4{color:var(--ink);line-height:1.35;font-weight:700}
   a{color:var(--indigo-soft);text-decoration:none}
   .wrap{max-width:760px;margin:0 auto;padding:0 16px}
 
-  /* ---------- Hero ---------- */
+  /* hero */
   .hero{
-    position:relative;overflow:hidden;color:#fff;
+    position:relative;overflow:hidden;color:#fff;padding:34px 0 30px;
+    padding-top:calc(34px + env(safe-area-inset-top));
     background:
       radial-gradient(560px 300px at 92% 4%, rgba(217,85,127,.45), transparent 60%),
       radial-gradient(480px 280px at 4% 96%, rgba(23,128,107,.42), transparent 62%),
       linear-gradient(160deg,#16224A,#1B2A5B 48%,#26376F);
-    padding:34px 0 30px;
-    padding-top:calc(34px + env(safe-area-inset-top));
   }
   .hero::after{
     content:"";position:absolute;inset:0;opacity:.42;pointer-events:none;
@@ -49,133 +46,58 @@
   }
   .hero .wrap{position:relative;z-index:2}
   .kicker{
-    display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.14em;
-    color:#FFD9E5;background:rgba(255,255,255,.11);
-    border:1px solid rgba(255,255,255,.2);padding:6px 12px;border-radius:999px;margin-bottom:14px;
+    display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.14em;color:#FFD9E5;
+    background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.2);
+    padding:6px 12px;border-radius:999px;margin-bottom:14px;
   }
   .hero h1{font-size:clamp(23px,6.4vw,32px);color:#fff;letter-spacing:-.01em}
   .hero h1 em{font-style:normal;color:#FFC9DB}
   .hero p{margin-top:10px;font-size:14.5px;color:rgba(255,255,255,.87)}
   .hero p b{color:#FFE3B0;font-weight:700}
-
   .fcard{
-    display:flex;align-items:center;gap:12px;margin-top:16px;
+    display:flex;align-items:center;gap:12px;margin-top:14px;
     background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.22);
-    border-radius:14px;padding:13px 15px;
+    border-radius:14px;padding:12px 15px;
   }
   .fcard .ic{font-size:19px;flex:0 0 auto}
   .fcard .txt{font-size:13.4px;color:#fff;line-height:1.55}
-  .fcard .txt b{font-weight:700}
   .fcard .txt small{display:block;color:rgba(255,255,255,.72);font-size:12px;margin-top:1px}
 
-  /* ---------- Nav ---------- */
-  .nav{
-    position:sticky;top:0;z-index:60;
-    background:rgba(251,247,241,.94);backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
-  }
+  /* nav */
+  .nav{position:sticky;top:0;z-index:60;background:rgba(251,247,241,.94);
+       backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   .nav-scroll{display:flex;gap:6px;overflow-x:auto;padding:9px 16px;scrollbar-width:none}
   .nav-scroll::-webkit-scrollbar{display:none}
-  .nav a{
-    flex:0 0 auto;font-size:13px;font-weight:600;color:var(--body);
-    padding:8px 13px;border-radius:999px;border:1px solid transparent;
-  }
-  .nav a:active{background:#fff;border-color:var(--line)}
+  .nav a{flex:0 0 auto;font-size:13px;font-weight:600;color:var(--body);
+         padding:8px 13px;border-radius:999px;border:1px solid transparent}
 
-  /* ---------- Section ---------- */
   section{padding:30px 0 2px;scroll-margin-top:56px}
   .s-head{display:flex;align-items:center;gap:10px;margin-bottom:5px}
-  .s-head .idx{
-    flex:0 0 auto;font-size:11.5px;font-weight:800;letter-spacing:.06em;
-    color:#fff;background:var(--indigo);padding:3px 9px;border-radius:7px;
-  }
+  .s-head .idx{flex:0 0 auto;font-size:11.5px;font-weight:800;color:#fff;
+               background:var(--indigo);padding:3px 9px;border-radius:7px}
   .s-head h2{font-size:19px}
   .s-desc{color:var(--muted);font-size:13.4px;margin-bottom:16px}
-
   .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh)}
   .pad{padding:16px}
 
-  /* ---------- 待办时间表 ---------- */
-  .todo{border-left:2.5px solid #E3E7F1;margin-left:6px;padding-left:16px}
-  .todo-item{position:relative;padding:0 0 16px}
-  .todo-item:last-child{padding-bottom:4px}
-  .todo-item::before{
-    content:"";position:absolute;left:-22.5px;top:8px;
-    width:9px;height:9px;border-radius:50%;background:#fff;border:2.5px solid var(--indigo-soft);
-  }
-  .todo-item.key::before{border-color:var(--pink);background:var(--pink)}
-  .todo-item .t{font-size:12.4px;font-weight:800;color:var(--indigo);letter-spacing:.02em}
-  .todo-item .c{font-size:14.4px;color:var(--ink);font-weight:600;margin-top:1px}
-  .todo-item .d{font-size:13.2px;margin-top:2px}
-  .todo-item code{
-    display:inline-block;background:#F4F2ED;border-radius:6px;
-    padding:2px 7px;font-size:12px;color:#8A4B2E;word-break:break-all;margin-top:4px;
-  }
-
-  /* ---------- flight block ---------- */
-  .fl{
-    background:#fff;border:1px solid var(--line);border-radius:var(--r);
-    box-shadow:var(--sh);overflow:hidden;
-  }
-  .fl + .fl{margin-top:11px}
-  .fl-top{
-    display:flex;justify-content:space-between;align-items:center;gap:10px;
-    padding:11px 15px;background:#F7F4EE;border-bottom:1px solid var(--line);
-  }
-  .fl-top .dir{font-size:13.4px;font-weight:800;color:var(--indigo)}
-  .fl-top .al{font-size:11.8px;color:var(--muted);font-weight:600;text-align:right}
-  .fl-body{padding:14px 15px}
-  .fl-time{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px}
-  .fl-time .p{text-align:center}
-  .fl-time .p .hh{font-size:21px;font-weight:800;color:var(--ink);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-  .fl-time .p .dt{font-size:11.8px;color:var(--muted);margin-top:1px}
-  .fl-time .p .ap{font-size:12.4px;font-weight:700;color:var(--indigo);margin-top:2px}
-  .fl-time .arrow{display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--muted)}
-  .fl-time .arrow .dur{font-size:10.8px;white-space:nowrap}
-  .fl-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px;padding-top:12px;border-top:1px dashed #EDE9E1}
-  .chip{
-    font-size:11.8px;font-weight:600;color:#55607a;background:#F5F3EF;
-    border:1px solid #EAE6DE;padding:3px 9px;border-radius:8px;
-  }
-  .chip.g{background:var(--jade-bg);border-color:#CDE6DE;color:var(--jade)}
-  .chip.o{background:var(--amber-bg);border-color:#F2E0C2;color:var(--amber)}
-  .chip.p{background:var(--pink-bg);border-color:#F6D6DF;color:#B8446A}
-
-  /* ---------- callout ---------- */
-  .callout{
-    border-left:3px solid var(--amber);background:var(--amber-bg);
-    padding:13px 15px;border-radius:0 12px 12px 0;font-size:13.4px;margin:13px 0;
-  }
-  .callout.b{border-color:var(--indigo-soft);background:#EFF3FC}
-  .callout.p{border-color:var(--pink);background:var(--pink-bg)}
-  .callout.g{border-color:var(--jade);background:var(--jade-bg)}
-  .callout b{color:var(--ink)}
-  .callout ul{margin:6px 0 0 17px}
-  .callout li{margin-bottom:4px}
-  .callout li:last-child{margin-bottom:0}
-
-  /* ---------- 一页纸概览 ---------- */
+  /* 概览 */
   .ov{display:grid;gap:10px}
-  .ov-row{
-    display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:start;
-    background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px 14px;box-shadow:var(--sh);
-  }
-  .ov-row .day{
-    font-size:11.6px;font-weight:800;color:#fff;background:var(--indigo);
-    border-radius:9px;padding:5px 0;text-align:center;line-height:1.3;
-  }
+  .ov-row{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:start;
+          background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px 14px;box-shadow:var(--sh)}
+  .ov-row .day{font-size:11.6px;font-weight:800;color:#fff;background:var(--indigo);
+               border-radius:9px;padding:5px 0;text-align:center;line-height:1.3}
   .ov-row.d2 .day{background:var(--pink)}
   .ov-row.d3 .day{background:var(--jade)}
   .ov-row .ttl{font-size:14.6px;font-weight:700;color:var(--ink)}
   .ov-row .sub{font-size:12.9px;color:var(--muted);margin-top:2px}
 
-  /* ---------- tabs ---------- */
+  .mapbox{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:8px;box-shadow:var(--sh);margin-top:12px}
+  .mapbox svg{width:100%;height:auto;display:block;border-radius:10px}
+
+  /* tabs */
   .tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:14px}
-  .tab{
-    font-family:inherit;cursor:pointer;text-align:center;
-    border:1px solid var(--line);background:#fff;border-radius:13px;
-    padding:10px 6px;min-height:56px;transition:.16s;
-  }
+  .tab{font-family:inherit;cursor:pointer;text-align:center;border:1px solid var(--line);
+       background:#fff;border-radius:13px;padding:10px 6px;min-height:56px;transition:.16s}
   .tab .d{display:block;font-size:10.8px;font-weight:800;letter-spacing:.04em;color:var(--muted)}
   .tab .t{display:block;font-size:12.6px;font-weight:700;color:var(--ink);margin-top:3px;line-height:1.3}
   .tab.active{background:var(--indigo);border-color:var(--indigo)}
@@ -185,303 +107,209 @@
   .panel.active{display:block;animation:fade .26s ease}
   @keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
 
-  /* ---------- timeline ---------- */
+  /* 时间轴 */
   .tl{border-left:2.5px solid #E3E7F1;margin-left:6px;padding-left:16px}
-  .ti{position:relative;padding-bottom:17px}
+  .ti{position:relative;padding-bottom:16px}
   .ti:last-child{padding-bottom:4px}
-  .ti::before{
-    content:"";position:absolute;left:-22.5px;top:7px;width:9px;height:9px;
-    border-radius:50%;background:#fff;border:2.5px solid var(--indigo-soft);
-  }
+  .ti::before{content:"";position:absolute;left:-22.5px;top:7px;width:9px;height:9px;
+              border-radius:50%;background:#fff;border:2.5px solid var(--indigo-soft)}
   .ti.hi::before{border-color:var(--pink);background:var(--pink)}
   .ti.fd::before{border-color:var(--amber);background:var(--amber)}
-  .ti .tm{font-size:12.6px;font-weight:800;color:var(--indigo);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+  .ti .tm{font-size:12.6px;font-weight:800;color:var(--indigo);font-variant-numeric:tabular-nums}
   .ti h4{font-size:15px;margin-top:1px}
   .ti p{font-size:13.6px;margin-top:3px}
-  .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-  .meta .chip{font-size:11.5px}
-  .lk{
-    display:inline-flex;align-items:center;gap:4px;
-    font-size:12.4px;font-weight:700;padding:6px 11px;border-radius:9px;
-    border:1px solid #D9E0F2;background:#EEF2FB;color:var(--indigo-soft);
-  }
+  .lk{display:inline-flex;align-items:center;gap:4px;font-size:12.4px;font-weight:700;
+      padding:6px 11px;border-radius:9px;border:1px solid #D9E0F2;background:#EEF2FB;color:var(--indigo-soft);margin:7px 6px 0 0}
   .lk.x{border-color:#F6D6DF;background:#FDF0F4;color:#B8446A}
-  .lk:active{filter:brightness(.95)}
 
-  /* ---------- kv rows ---------- */
+  /* 速查表 */
   .kv{background:#fff;border:1px solid var(--line);border-radius:13px;overflow:hidden;box-shadow:var(--sh)}
-  .kv-row{display:grid;grid-template-columns:1.05fr 1fr;gap:10px;padding:12px 14px;border-bottom:1px solid #F2EFE9;font-size:13.4px}
+  .kv-row{display:grid;grid-template-columns:1fr 1.15fr;gap:10px;padding:12px 14px;
+          border-bottom:1px solid #F2EFE9;font-size:13.4px}
   .kv-row:last-child{border-bottom:none}
   .kv-row .k{color:var(--ink);font-weight:700}
-  .kv-row .v{color:var(--body);text-align:right}
-  .kv-row .v b{color:var(--jade)}
+  .kv-row .k small{display:block;font-weight:400;color:var(--muted);font-size:11.8px;margin-top:1px}
+  .kv-row .v{text-align:right;color:var(--body)}
+  .kv-row .v b{color:var(--jade);font-weight:700}
 
-  /* ---------- 美食 ---------- */
-  .fgrp{margin-bottom:14px}
+  /* 美食 */
+  .fgrp{margin-bottom:15px}
   .fgrp:last-child{margin-bottom:0}
-  .fgrp .h{
-    display:flex;align-items:center;gap:9px;font-size:13px;font-weight:800;
-    color:var(--indigo);margin-bottom:8px;
-  }
+  .fgrp .h{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:800;color:var(--indigo);margin-bottom:8px}
   .fgrp .h::after{content:"";flex:1;height:1px;background:var(--line)}
-  .fr{
-    display:flex;justify-content:space-between;align-items:baseline;gap:10px;
-    background:#fff;border:1px solid var(--line);border-radius:11px;
-    padding:10px 13px;margin-bottom:6px;font-size:13.6px;
-  }
+  .fr{display:flex;justify-content:space-between;align-items:baseline;gap:10px;background:#fff;
+      border:1px solid var(--line);border-radius:11px;padding:10px 13px;margin-bottom:6px;font-size:13.6px}
   .fr .nm b{color:var(--ink)}
   .fr .nm small{display:block;color:var(--muted);font-size:12px;margin-top:1px}
   .fr .pv{font-weight:800;color:var(--jade);white-space:nowrap;font-size:13px}
 
-  /* ---------- 预算 ---------- */
-  .calc-row{padding:13px 15px;border-bottom:1px solid #F2EFE9}
-  .calc-row:last-of-type{border-bottom:none}
-  .calc-row .lb{font-size:14px;font-weight:700;color:var(--ink)}
-  .calc-row .lb small{display:block;font-weight:400;color:var(--muted);font-size:12.2px;margin-top:1px}
-  .seg{display:flex;gap:6px;margin-top:9px;flex-wrap:wrap}
-  .seg button{
-    flex:1 1 0;min-width:88px;min-height:42px;font-family:inherit;cursor:pointer;
-    font-size:13px;font-weight:700;border:1px solid var(--line);background:#fff;
-    color:var(--body);border-radius:11px;padding:8px 6px;transition:.15s;
-  }
-  .seg button.on{background:var(--indigo);border-color:var(--indigo);color:#fff}
-  .total{
-    display:flex;justify-content:space-between;align-items:center;gap:10px;
-    background:linear-gradient(135deg,#16224A,#26376F);color:#fff;padding:17px 16px;
-    border-radius:0 0 var(--r) var(--r);
-  }
-  .total .l{font-size:12px;letter-spacing:.1em;color:#FFC9DB;font-weight:700}
-  .total .a{font-size:25px;font-weight:800;letter-spacing:-.02em}
-  .total .a small{font-size:12.5px;font-weight:600;color:rgba(255,255,255,.7)}
-  .total .rm{font-size:11.4px;color:rgba(255,255,255,.62);text-align:right}
-
-  /* ---------- details ---------- */
-  details{background:#fff;border:1px solid var(--line);border-radius:13px;box-shadow:var(--sh);margin-bottom:10px;overflow:hidden}
-  summary{
-    cursor:pointer;list-style:none;padding:14px 16px;font-size:14.4px;font-weight:700;color:var(--ink);
-    display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:50px;
-  }
-  summary::-webkit-details-marker{display:none}
-  summary::after{content:"＋";font-size:16px;color:var(--muted);font-weight:600}
-  details[open] summary::after{content:"－"}
-  details .dbody{padding:0 16px 16px;font-size:13.6px}
-  details .dbody ul{margin:0 0 0 17px}
-  details .dbody li{margin-bottom:5px}
-
-  /* ---------- misc ---------- */
+  /* 卡片网格 */
   .grid2{display:grid;gap:10px}
   .mini{background:#fff;border:1px solid var(--line);border-radius:13px;padding:14px 15px;box-shadow:var(--sh)}
   .mini h4{font-size:14.4px;margin-bottom:5px}
   .mini p{font-size:13.2px}
   .mini .p2{font-size:12.8px;color:var(--muted);margin-bottom:5px}
 
-  .top{
-    position:fixed;right:14px;bottom:calc(18px + env(safe-area-inset-bottom));
-    width:46px;height:46px;border-radius:50%;border:none;cursor:pointer;
-    background:var(--indigo);color:#fff;font-size:19px;box-shadow:0 6px 18px rgba(20,25,45,.28);
-    display:grid;place-items:center;z-index:80;opacity:0;pointer-events:none;transition:.22s;
-  }
+  .callout{border-left:3px solid var(--amber);background:var(--amber-bg);padding:13px 15px;
+           border-radius:0 12px 12px 0;font-size:13.4px;margin:13px 0}
+  .callout.p{border-color:var(--pink);background:var(--pink-bg)}
+  .callout.b{border-color:var(--indigo-soft);background:#EFF3FC}
+  .callout b{color:var(--ink)}
+  .callout ul{margin:6px 0 0 17px}
+  .callout li{margin-bottom:3px}
+
+  .top{position:fixed;right:14px;bottom:calc(18px + env(safe-area-inset-bottom));width:46px;height:46px;
+       border-radius:50%;border:none;cursor:pointer;background:var(--indigo);color:#fff;font-size:19px;
+       box-shadow:0 6px 18px rgba(20,25,45,.28);display:grid;place-items:center;z-index:80;
+       opacity:0;pointer-events:none;transition:.22s}
   .top.show{opacity:1;pointer-events:auto}
 
-  footer{
-    margin-top:38px;padding:26px 0 40px;border-top:1px solid var(--line);
-    font-size:12.6px;color:var(--muted);text-align:center;
-  }
-  footer .big{font-size:15px;color:var(--ink);font-weight:700;margin-bottom:7px}
-
-  .src{border-radius:13px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:var(--sh)}
-  .src-row{display:flex;gap:10px;padding:12px 14px;border-bottom:1px solid #F2EFE9;font-size:13px}
-  .src-row:last-child{border-bottom:none}
-  .src-row .lv{flex:0 0 auto;font-size:10.6px;font-weight:800;padding:2px 8px;border-radius:999px;background:#E8EDF9;color:var(--indigo);margin-top:3px;white-space:nowrap}
-  .src-row .lv.b{background:#F3F0FA;color:#6B4FA8}
-  .src-row .lv.c{background:#F1F2F5;color:#7A8398}
+  footer{margin-top:38px;padding:26px 0 40px;border-top:1px solid var(--line);
+         font-size:12.6px;color:var(--muted);text-align:center}
+  footer .big{font-size:15px;color:var(--ink);font-weight:700;margin-bottom:6px}
 
   @media (min-width:620px){
     body{font-size:15.5px}
     .hero{padding:46px 0 38px}
     .grid2{grid-template-columns:1fr 1fr}
-    .tabs{gap:9px}
   }
   @media print{
-    .nav,.top{display:none}
+    .nav,.top,.tabs{display:none}
     .panel{display:block !important}
     body{background:#fff}
+    .panel::before{content:"";display:block;font-size:15pt;font-weight:800;color:#fff;
+                   background:#1B2A5B;padding:8px 12px;border-radius:8px;margin:2px 0 10px}
+    .panel[data-panel="1"]::before{content:"DAY 1 · 9/25 周五 · 老城世遗"}
+    .panel[data-panel="2"]::before{content:"DAY 2 · 9/26 周六 · 上山下海"}
+    .panel[data-panel="3"]::before{content:"DAY 3 · 9/27 周日 · 娘惹收尾 + 夜航返港"}
+    .ti,.mini,.fr,.kv-row,.ov-row{page-break-inside:avoid}
   }
 </style>
 </head>
 <body>
 
-<!-- ================= HERO ================= -->
 <header class="hero">
   <div class="wrap">
-    <span class="kicker">2026 秋 · 3 个整天 · 世界文化遗产</span>
+    <span class="kicker">2026 秋 · 3 个完整白天 · 世界文化遗产</span>
     <h1>香港 → 槟城 <em>慢食老城</em>三日记</h1>
-    <p>9/24 深夜出发，9/28 凌晨返港。直飞 <b>约 3 小时 45 分</b>，落地即走，中马互免签证。</p>
+    <p>9/24 深夜出发，9/28 凌晨返港。直飞 <b>3 小时 45 分</b>，免签入境，落地即走。</p>
 
     <div class="fcard">
       <span class="ic">🛫</span>
-      <span class="txt"><b>9/24 周四 20:30</b> 香港 T2 → <b>9/25 周五 00:15</b> 槟城<small>香港快运 UO768 · 3h45m · 含 1 件 20kg 托运</small></span>
+      <span class="txt"><b>9/24 周四 20:30</b> 香港 T2 → <b>9/25 周五 00:15</b> 槟城<small>香港快运 UO768 · 含 1 件 20kg 托运</small></span>
     </div>
     <div class="fcard">
       <span class="ic">🛬</span>
-      <span class="txt"><b>9/28 周一 01:00</b> 槟城 → <b>04:55</b> 香港 T1<small>香港快运 UO769 · 3h55m · 含 1 件 20kg 托运</small></span>
+      <span class="txt"><b>9/28 周一 01:00</b> 槟城 → <b>04:55</b> 香港 T1<small>香港快运 UO769 · 含 1 件 20kg 托运</small></span>
     </div>
   </div>
 </header>
 
-<!-- ================= NAV ================= -->
 <nav class="nav">
   <div class="nav-scroll">
-    <a href="#overview">一页纸</a>
-    <a href="#prep">出发前待办</a>
-    <a href="#night">深夜抵达</a>
+    <a href="#route">路线总览</a>
     <a href="#plan">逐日行程</a>
-    <a href="#extra">加菜清单</a>
-    <a href="#transit">交通</a>
-    <a href="#food">美食</a>
-    <a href="#stay">住宿</a>
-    <a href="#budget">预算</a>
-    <a href="#tips">贴士</a>
-    <a href="#src">核验</a>
+    <a href="#sights">景点速查</a>
+    <a href="#food">美食推荐</a>
+    <a href="#stay">住宿推荐</a>
+    <a href="#tips">实用贴士</a>
   </div>
 </nav>
 
 <main class="wrap">
 
-  <!-- ========== 一页纸 ========== -->
-  <section id="overview">
-    <div class="s-head"><span class="idx">概览</span><h2>行程一页纸</h2></div>
-    <p class="s-desc">你的实际航班让你在槟城拥有 3 个完整白天（9/25、9/26、9/27），比原先设想的宽松很多，节奏可以从容。</p>
+  <!-- ========== 路线总览 ========== -->
+  <section id="route">
+    <div class="s-head"><span class="idx">01</span><h2>路线总览</h2></div>
+    <p class="s-desc">三天动线：老城 → 上山 → 海边 → 老城收尾。市区靠走，跨区全部 Grab。</p>
 
     <div class="ov">
       <div class="ov-row">
         <div class="day">9/24<br>周四</div>
-        <div><div class="ttl">夜里出发</div><div class="sub">17:30 到香港 T2 → 20:30 UO768 起飞 → 跨夜飞行</div></div>
+        <div><div class="ttl">夜里出发</div><div class="sub">17:30 到香港 T2 → 20:30 UO768 起飞</div></div>
       </div>
       <div class="ov-row">
-        <div class="day">9/25<br>周五</div>
-        <div><div class="ttl">Day 1 · 老城世遗</div><div class="sub">凌晨 01:30 入住补眠 → 午后侨生博物馆 + 壁画街 + 姓氏桥 → 新关仔角夜市</div></div>
+        <div class="day">Day 1<br>9/25</div>
+        <div><div class="ttl">老城世遗</div><div class="sub">凌晨入住补眠 → 侨生博物馆 → 壁画街 · 姓周桥 → 新关仔角夜市</div></div>
       </div>
       <div class="ov-row d2">
-        <div class="day">9/26<br>周六</div>
-        <div><div class="ttl">Day 2 · 上山下海</div><div class="sub">升旗山 + The Habitat → 极乐寺 → 亚参叻沙 → 峇都丁宜海滩 → 汕头街夜市</div></div>
+        <div class="day">Day 2<br>9/26</div>
+        <div><div class="ttl">上山下海</div><div class="sub">升旗山 + The Habitat → 极乐寺 → 亚参叻沙 → 峇都丁宜海滩 → 汕头街夜市</div></div>
       </div>
       <div class="ov-row d3">
-        <div class="day">9/27<br>周日</div>
-        <div><div class="ttl">Day 3 · 娘惹收尾 + 夜航</div><div class="sub">点心早茶 → 蓝屋 → 小印度 → 采购 → 回酒店冲凉 → 22:00 到机场 → 01:00 起飞</div></div>
+        <div class="day">Day 3<br>9/27</div>
+        <div><div class="ttl">娘惹收尾 + 夜航</div><div class="sub">点心早茶 → 蓝屋 → 小印度 → 采购 → 回酒店冲凉 → 22:00 到机场</div></div>
       </div>
       <div class="ov-row">
         <div class="day" style="background:#55607a">9/28<br>周一</div>
-        <div><div class="ttl">凌晨返港</div><div class="sub">04:55 抵港 T1 · 机场快线首班前，需用通宵巴士或的士</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== 出发前待办 ========== -->
-  <section id="prep">
-    <div class="s-head"><span class="idx">01</span><h2>出发前待办（按日期排）</h2></div>
-    <p class="s-desc">机票已出票，剩下这三项是硬门槛，漏掉任何一项都可能卡在登机口或入境处。</p>
-
-    <div class="card pad">
-      <div class="todo">
-        <div class="todo-item key">
-          <div class="t">9/21 – 9/23</div>
-          <div class="c">订酒店：一共 4 晚，且第一晚要从 9/24 订起</div>
-          <div class="d">你 9/25 凌晨 00:15 才落地、约 01:30 到酒店。<b>订「9/25 入住」是错的</b>——酒店入住日通常按当晚算，凌晨抵达必须订 <b>9/24 入住</b>。
-          完整安排：9/24、9/25、9/26、9/27 共 4 晚，9/28 凌晨退房去机场。<br>
-          ★ 下单后务必给酒店发消息确认「<b>凌晨 01:30 可办理入住</b>」，乔治市不少老屋精品酒店前台并非 24 小时。</div>
-        </div>
-
-        <div class="todo-item key">
-          <div class="t">9/22 – 9/24</div>
-          <div class="c">填 MDAC 电子入境卡（免费，强制）</div>
-          <div class="d">马来西亚要求入境前 3 天内填报，你 9/25 抵达，所以最早 9/22 就可以填。填完<b>保存确认页截图</b>（含二维码）存在手机本地相册。</div>
-          <code>imigresen-online.imi.gov.my/mdac/main</code>
-        </div>
-
-        <div class="todo-item">
-          <div class="t">9/21 – 9/23</div>
-          <div class="c">买 eSIM（重点，别依赖落地买卡）</div>
-          <div class="d">你凌晨 01:00 后才会走出槟城机场，<b>机场的电话卡柜台、换汇店基本已关</b>。强烈建议出发前就买好 eSIM，落地开机即联网，才能立刻叫 Grab。</div>
-        </div>
-
-        <div class="todo-item">
-          <div class="t">9/22 前后</div>
-          <div class="c">提前预约凌晨机场接送</div>
-          <div class="d">凌晨时段的 Grab 司机明显变少、等待时间长。带 20kg 行李又累，建议直接用酒店接送或提前在 App 预约接机，价格通常 RM40–60。</div>
-        </div>
-
-        <div class="todo-item">
-          <div class="t">9/24 17:30</div>
-          <div class="c">抵达香港机场 T2，办理登机</div>
-          <div class="d">订单提示「提前 3 小时到机场」，即 17:30 前到 T2。香港快运可提前在线值机（通常起飞前 48 小时开放），但<b>你有托运行李，仍须到柜台交运</b>。别只在线值机就晚到。</div>
-        </div>
-
-        <div class="todo-item">
-          <div class="t">9/24 20:30</div>
-          <div class="c">UO768 起飞 → 9/25 00:15 抵达槟城</div>
-          <div class="d">航程 3 小时 45 分。机上可提前把 MDAC 截图、酒店地址（马来文/英文）准备好，落地后直接给司机看。</div>
-        </div>
-
-        <div class="todo-item">
-          <div class="t">9/28 01:00</div>
-          <div class="c">UO769 返程 → 04:55 抵达香港 T1</div>
-          <div class="d">返程前 3 小时到机场，即 <b>9/27 晚 22:00 抵达槟城机场</b>。抵港后机场快线首班约 05:50，需等近 1 小时；若不相等，可选通宵巴士 N 线或的士（以当日时刻表为准）。</div>
-        </div>
+        <div><div class="ttl">凌晨返港</div><div class="sub">01:00 起飞 → 04:55 抵达香港 T1</div></div>
       </div>
     </div>
 
-    <div class="callout p">
-      <b>行李提醒（按你的订单显示）</b>
-      <ul>
-        <li>已含 <b>1 件 20kg 托运行李</b>（往返都有）。</li>
-        <li>订单显示<b>无免费手提行李</b>。香港快运的最低票价通常只允许一件小型随身物品（放前排座位下），标准登机箱需额外加购。</li>
-        <li>请务必在起飞前于 App 内确认手提额度并加购如需；<b>在登机口临时加购的费用远高于线上</b>。</li>
-        <li>20kg 对 4 晚行程 + 伴手礼（豆蔻油、酱料包、饼类）可能偏紧，回程前记得留出重量余量。</li>
-      </ul>
-    </div>
-  </section>
+    <div class="mapbox">
+      <svg viewBox="0 0 900 420" role="img" aria-label="槟城三日路线示意图">
+        <defs>
+          <linearGradient id="sea" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#E9F2F6"/><stop offset="100%" stop-color="#DCEAF1"/>
+          </linearGradient>
+          <linearGradient id="land" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#F4F7EE"/><stop offset="100%" stop-color="#EAF0E2"/>
+          </linearGradient>
+        </defs>
+        <rect width="900" height="420" fill="url(#sea)" rx="14"/>
+        <path d="M150 92 C240 52 420 44 560 62 C700 80 796 118 806 186 C816 254 744 320 600 352 C456 384 288 372 208 328 C128 284 96 200 150 92 Z"
+              fill="url(#land)" stroke="#CBD8C8" stroke-width="1.5"/>
+        <path d="M205 330 C250 300 300 268 356 244" fill="none" stroke="#9FB0D6" stroke-width="2.2" stroke-dasharray="7 6"/>
+        <path d="M356 244 C430 232 500 226 566 224" fill="none" stroke="#9FB0D6" stroke-width="2.2" stroke-dasharray="7 6"/>
+        <path d="M566 224 C622 214 664 200 690 184" fill="none" stroke="#9FB0D6" stroke-width="2.2" stroke-dasharray="7 6"/>
+        <path d="M356 244 C348 216 344 194 344 174" fill="none" stroke="#B7C4A8" stroke-width="2.2" stroke-dasharray="7 6"/>
+        <path d="M470 196 L530 214" fill="none" stroke="#B7C4A8" stroke-width="2.2" stroke-dasharray="7 6"/>
+        <g font-family="-apple-system,PingFang SC,Microsoft YaHei,sans-serif">
+          <circle cx="205" cy="332" r="13" fill="#fff" stroke="#1B2A5B" stroke-width="3"/>
+          <text x="205" y="337" text-anchor="middle" font-size="12" font-weight="800" fill="#1B2A5B">✈</text>
+          <text x="205" y="366" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1D222E">槟城国际机场</text>
 
-  <!-- ========== 深夜抵达 ========== -->
-  <section id="night">
-    <div class="s-head"><span class="idx">02</span><h2>深夜抵达指南</h2></div>
-    <p class="s-desc">这一段是本行程最容易出问题的环节，单独拆出来讲。</p>
+          <circle cx="356" cy="244" r="17" fill="#1B2A5B" stroke="#fff" stroke-width="3.5"/>
+          <text x="356" y="249" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">1·3</text>
+          <text x="356" y="216" text-anchor="middle" font-size="13" font-weight="800" fill="#1B2A5B">乔治市世遗区</text>
+          <text x="356" y="199" text-anchor="middle" font-size="10.5" fill="#7A8398">壁画街 · 姓氏桥 · 侨生博物馆 · 蓝屋</text>
 
-    <div class="card" style="padding:16px">
-      <div class="kv">
-        <div class="kv-row"><span class="k">00:15</span><span class="v">UO768 抵达槟城国际机场</span></div>
-        <div class="kv-row"><span class="k">00:20 – 00:50</span><span class="v">入境排队。首次入境马来西亚若走人工柜台，出示 MDAC 截图即可（槟城机场已设自助通关闸门，能否使用以现场指引为准）</span></div>
-        <div class="kv-row"><span class="k">00:50</span><span class="v">取托运行李（20kg 需等转盘）</span></div>
-        <div class="kv-row"><span class="k">01:00</span><span class="v">上接机车 / Grab，前往乔治市</span></div>
-        <div class="kv-row"><span class="k">01:30</span><span class="v"><b>抵达酒店办理入住</b>，洗漱、睡觉</span></div>
-      </div>
-    </div>
+          <circle cx="344" cy="166" r="14" fill="#fff" stroke="#D9557F" stroke-width="3.5"/>
+          <text x="344" y="171" text-anchor="middle" font-size="11" font-weight="800" fill="#D9557F">2</text>
+          <text x="344" y="142" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1D222E">升旗山</text>
 
-    <div class="callout">
-      <b>深夜抵达三件事，做错会很难受</b>
-      <ul>
-        <li><b>① 酒店前台不一定 24 小时。</b>乔治市的老屋精品酒店、民宿很多晚上 22:00 就没人了。订房后必须书面确认凌晨入住方式（有人在 / 自助取钥匙箱 / 门禁码），并保留联系电话。</li>
-        <li><b>② 机场换汇与电话卡凌晨基本关门。</b>提前买 eSIM；现金部分在香港先换一点，或带一张可境外取现的卡，白天再在市区兑换。</li>
-        <li><b>③ 凌晨 Grab 车少。</b>不建议赌运气。提前让酒店安排接机，或出发前在 Grab 预约行程。</li>
-      </ul>
-    </div>
+          <circle cx="470" cy="196" r="14" fill="#fff" stroke="#D9557F" stroke-width="3.5"/>
+          <text x="470" y="201" text-anchor="middle" font-size="11" font-weight="800" fill="#D9557F">2</text>
+          <text x="470" y="172" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1D222E">极乐寺</text>
 
-    <div class="callout b">
-      <b>入境可能被查看的材料</b>
-      <ul>
-        <li>MDAC 确认页（截图即可）</li>
-        <li>回程机票订单（UO769，9/28 01:00 起飞）</li>
-        <li>住宿订单（9/24–9/28）</li>
-        <li>护照有效期须 ≥ 6 个月且完整无破损</li>
-      </ul>
-      这些请<b>全部存手机本地相册</b>，不要只放云盘。
+          <circle cx="566" cy="224" r="14" fill="#fff" stroke="#D98A22" stroke-width="3.5"/>
+          <text x="566" y="229" text-anchor="middle" font-size="11" font-weight="800" fill="#D98A22">🌙</text>
+          <text x="566" y="256" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1D222E">新关仔角夜市</text>
+
+          <circle cx="690" cy="180" r="14" fill="#fff" stroke="#17806B" stroke-width="3.5"/>
+          <text x="690" y="185" text-anchor="middle" font-size="11" font-weight="800" fill="#17806B">2</text>
+          <text x="690" y="156" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1D222E">峇都丁宜海滩</text>
+
+          <circle cx="420" cy="290" r="12" fill="#fff" stroke="#D98A22" stroke-width="3.5"/>
+          <text x="420" y="295" text-anchor="middle" font-size="10" font-weight="800" fill="#D98A22">🌙</text>
+          <text x="420" y="318" text-anchor="middle" font-size="12" font-weight="600" fill="#414A5C">汕头街夜市</text>
+        </g>
+        <g font-family="-apple-system,PingFang SC,sans-serif">
+          <rect x="28" y="26" width="222" height="86" rx="12" fill="#fff" opacity=".92" stroke="#E6E1D8"/>
+          <text x="44" y="48" font-size="11.5" font-weight="800" fill="#1B2A5B" letter-spacing="1">图例</text>
+          <circle cx="50" cy="66" r="6.5" fill="#1B2A5B"/><text x="64" y="70" font-size="11.5" fill="#414A5C">Day 1 老城世遗</text>
+          <circle cx="50" cy="86" r="6.5" fill="#D9557F"/><text x="64" y="90" font-size="11.5" fill="#414A5C">Day 2 上山下海</text>
+          <circle cx="158" cy="66" r="6.5" fill="#17806B"/><text x="172" y="70" font-size="11.5" fill="#414A5C">海滩</text>
+          <circle cx="158" cy="86" r="6.5" fill="#D98A22"/><text x="172" y="90" font-size="11.5" fill="#414A5C">夜市</text>
+        </g>
+      </svg>
     </div>
   </section>
 
   <!-- ========== 逐日行程 ========== -->
   <section id="plan">
-    <div class="s-head"><span class="idx">03</span><h2>逐日详细行程</h2></div>
-    <p class="s-desc">已按你的实际航班重排：Day 1 走轻一点（凌晨才睡），Day 2 上山下海，Day 3 收尾并衔接夜航。</p>
+    <div class="s-head"><span class="idx">02</span><h2>逐日行程</h2></div>
+    <p class="s-desc">时间点为建议节奏，已含步行与等待缓冲。门票、时长等细节见下一节「景点速查」。</p>
 
     <div class="tabs" id="dayTabs">
       <button class="tab active" data-day="1"><span class="d">9/25 周五</span><span class="t">老城世遗</span></button>
@@ -492,27 +320,28 @@
     <!-- DAY 1 -->
     <div class="panel active" data-panel="1">
       <div class="callout b" style="margin-top:0">
-        <b>今天的关键词是「别硬撑」。</b>凌晨 2 点才睡，硬赶早上行程只会让后面两天崩掉。上午睡饱，午后出发，效率反而最高。
+        <b>今天别硬撑。</b>凌晨 2 点才睡，上午睡饱再出发，效率反而最高。
       </div>
       <div class="card" style="padding:16px 16px 2px">
         <div class="tl">
-          <div class="ti"><div class="tm">01:30</div><h4>🏨 入住酒店，倒头就睡</h4><p>行李先别全拆，洗漱即睡。</p></div>
+          <div class="ti"><div class="tm">01:30</div><h4>🏨 入住酒店</h4><p>提前跟酒店确认好凌晨 01:30 能办入住。</p></div>
 
-          <div class="ti"><div class="tm">10:00</div><h4>☕ 起床 · 酒店早餐或附近茶室</h4><p>若酒店含早就在酒店解决；否则步行去最近的茶餐室，一杯咖啡 + 烤面包唤醒。</p><div class="meta"><span class="chip">人均 RM10–15</span></div></div>
+          <div class="ti fd"><div class="tm">11:30</div><h4>🍜 早午餐：新街 / 汕头街茶餐室</h4><p>落地第一顿正经饭，点粿条汤或福建面（虾面）。</p></div>
 
-          <div class="ti fd"><div class="tm">11:30</div><h4>🍜 早午餐：新街 / 汕头街茶餐室</h4><p>落地第一顿正经饭。点<b>粿条汤</b>或<b>福建面（虾面）</b>，饮料记得说「少甜」。</p><div class="meta"><span class="chip">人均 RM12–20</span><span class="chip">约 1 小时</span></div></div>
+          <div class="ti hi"><div class="tm">13:00</div><h4>🏛️ 侨生博物馆</h4><p>《小娘惹》取景地，薄荷绿外墙的峇峇娘惹豪宅。门票含免费导览，跟着听最省事。</p>
+            <a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Pinang+Peranakan+Mansion+Penang">📍 导航</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城侨生博物馆">📸 小红书</a></div>
 
-          <div class="ti hi"><div class="tm">13:00</div><h4>🏛️ 侨生博物馆 Pinang Peranakan Mansion</h4><p>《小娘惹》取景地，薄荷绿外墙的峇峇娘惹豪宅。<b>门票含免费导览</b>，跟着导览听故事比自己逛有意思得多，是理解槟城娘惹文化最快的方式。</p><div class="meta"><span class="chip">09:30–17:30</span><span class="chip">成人约 RM30</span><span class="chip">1–1.5 小时</span></div><div class="meta"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Pinang+Peranakan+Mansion+Penang">📍 导航</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城侨生博物馆">📸 小红书</a></div></div>
+          <div class="ti hi"><div class="tm">15:00</div><h4>🎨 壁画街 + 姓周桥 + 爱情巷</h4><p>Armenian Street 看最著名的「姐弟共骑」，步行 5 分钟到姓周桥（华人海上木屋聚落）。午后偏晒，巷内可随时躲。</p>
+            <a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Armenian+Street+George+Town+Penang">📍 壁画街</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城壁画街">📸 小红书</a></div>
 
-          <div class="ti hi"><div class="tm">15:00</div><h4>🎨 壁画街 + 姓周桥 + 爱情巷</h4><p>经典动线：<b>Armenian Street（打铜仔街）</b>看最著名的「姐弟共骑」，步行 5 分钟到 <b>姓周桥</b>（华人海上木屋聚落，免费）。沿途还有 52 座免费铁线雕塑。午后偏晒，巷内树荫与咖啡店可随时躲。</p><div class="meta"><span class="chip">免费</span><span class="chip">徒步 1.5–2 小时</span></div><div class="meta"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Armenian+Street+George+Town+Penang">📍 壁画街</a><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Chew+Jetty+Clan+Jetty+Penang">📍 姓周桥</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城壁画街">📸 小红书</a></div></div>
+          <div class="ti"><div class="tm">17:00</div><h4>😴 回酒店小憩</h4><p>补一觉，晚上才有精力逛夜市。</p></div>
 
-          <div class="ti"><div class="tm">17:00</div><h4>😴 回酒店休息 1 小时（强烈建议）</h4><p>补一个短觉，晚上才有精力逛夜市。这是 3 天行程不崩的关键。</p></div>
+          <div class="ti"><div class="tm">18:30</div><h4>⛪ 圣乔治教堂 · 康华丽堡 · 海滨</h4><p>白色英式教堂与海边星形古堡，傍晚光线舒服。</p></div>
 
-          <div class="ti"><div class="tm">18:30</div><h4>⛪ 圣乔治教堂 · 康华丽堡 · 海滨散步</h4><p>顺路看白色英式教堂与海边星形古堡，傍晚光线舒服。体力不济可直接跳过。</p><div class="meta"><span class="chip">外观免费</span><span class="chip">30–40 分钟</span></div></div>
+          <div class="ti fd"><div class="tm">19:15</div><h4>🌙 新关仔角夜市</h4><p>一次吃齐：炭烧炒粿条（加鸭蛋更香）、亚参叻沙、蚝煎、煎蕊、现烤海鲜。</p>
+            <a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Gurney+Drive+Food+Centre+Penang">📍 导航</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城新关仔角夜市">📸 小红书</a></div>
 
-          <div class="ti fd"><div class="tm">19:15</div><h4>🌙 新关仔角夜市 · 第一顿夜市</h4><p>一次吃齐：<b>炭烧炒粿条</b>（可要「加鸭蛋」更香）、<b>亚参叻沙</b>、<b>蚝煎</b>、<b>煎蕊</b>、现烤海鲜。跟着本地人排队的摊子走基本不踩雷。</p><div class="meta"><span class="chip">18:00 后开档</span><span class="chip">人均 RM25–40</span></div><div class="meta"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Gurney+Drive+Food+Centre+Penang">📍 导航</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城新关仔角夜市">📸 小红书</a></div></div>
-
-          <div class="ti"><div class="tm">21:00</div><h4>回酒店</h4><p>Grab 回老城约 RM8–12。今晚早点睡，明天要上山。</p></div>
+          <div class="ti"><div class="tm">21:00</div><h4>回酒店</h4><p>明天要上山，今晚早点睡。</p></div>
         </div>
       </div>
     </div>
@@ -520,33 +349,33 @@
     <!-- DAY 2 -->
     <div class="panel" data-panel="2">
       <div class="callout p" style="margin-top:0">
-        <b>今天是周六 —— 升旗山排队高峰日。</b>缆车等候可达 1 小时以上，务必买快速通道票，或最晚 09:00 前抵达缆车站。
+        <b>周六是升旗山排队高峰</b>，缆车可能等 1 小时以上，建议买快速通道票，或 09:00 前到缆车站。
       </div>
       <div class="card" style="padding:16px 16px 2px">
         <div class="tl">
-          <div class="ti fd"><div class="tm">07:00</div><h4>☕ 早餐：多春茶室（炭烤面包 + 半熟蛋）</h4><p>槟城最经典的老茶室体验。这里常要排队，<b>7:30 前到最稳</b>；怕排队就换附近任何一家茶餐室吃点心。</p><div class="meta"><span class="chip">人均 RM10–15</span><span class="chip">40 分钟</span></div><div class="meta"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Toh+Soon+Cafe+Penang">📍 导航</a></div></div>
+          <div class="ti fd"><div class="tm">07:00</div><h4>☕ 早餐：多春茶室</h4><p>炭烤面包 + 半熟蛋 + 海南咖啡。常要排队，7:30 前到最稳。</p></div>
 
-          <div class="ti"><div class="tm">08:00</div><h4>🚗 Grab 前往升旗山缆车站</h4><p>定位务必选 <b>“Penang Hill Lower Station”</b>（山脚站），别误订到山顶入口。</p><div class="meta"><span class="chip">20–25 分钟</span><span class="chip">约 RM15–20</span></div></div>
+          <div class="ti"><div class="tm">08:00</div><h4>🚗 Grab 前往升旗山缆车站</h4><p>定位选「Penang Hill Lower Station」（山脚站），别订到山顶入口。</p></div>
 
-          <div class="ti hi"><div class="tm">09:00</div><h4>🚞 升旗山 + The Habitat 生态公园</h4><p>乘百年缆车上山，山顶俯瞰乔治市与槟威大桥。<b>强烈建议加买 The Habitat</b>——1.3 亿年热带雨林中的树冠步道（Canopy Walk）与天空步道，是升旗山最值得的一段。山顶比市区凉几度，带件薄外套。</p><div class="meta"><span class="chip">缆车 06:30–23:00</span><span class="chip">外国游客普通往返约 RM30–40</span><span class="chip o">快速通道约 RM80</span><span class="chip">The Habitat 另购票</span><span class="chip">建议停留 3–3.5 小时</span></div><div class="meta"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Penang+Hill+Lower+Station">📍 导航</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城升旗山The+Habitat">📸 小红书</a></div></div>
+          <div class="ti hi"><div class="tm">09:00</div><h4>🚞 升旗山 + The Habitat</h4><p>百年缆车上山，山顶俯瞰乔治市与槟威大桥。强烈建议加买 The Habitat——树冠步道与天空步道是这里最值得的一段。山顶凉几度，带件薄外套。</p>
+            <a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Penang+Hill+Lower+Station">📍 导航</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城升旗山The+Habitat">📸 小红书</a></div>
 
-          <div class="ti"><div class="tm">12:00</div><h4>🚞 下山 → 亚依淡（Air Itam）</h4><p>山脚街区就是极乐寺所在地，两地顺路合并。</p><div class="meta"><span class="chip">约 10 分钟</span><span class="chip">车费 RM8–12</span></div></div>
+          <div class="ti fd"><div class="tm">12:30</div><h4>🍜 亚依淡亚参叻沙</h4><p>槟城叻沙的「祖师爷」，酸辣开胃。<b>上午开摊、卖完即收</b>，若已收摊就吃巴刹周边面摊。</p></div>
 
-          <div class="ti fd"><div class="tm">12:30</div><h4>🍜 午餐：亚依淡亚参叻沙（必吃）</h4><p>槟城叻沙的「祖师爷」摊位，酸辣开胃、米粉弹牙。<b>通常在上午开摊，卖完即收</b>（不少资料提到 10:30 前后就可能售罄）。若已收摊，改吃巴刹周边其他面摊。</p><div class="meta"><span class="chip">人均 RM8–12</span><span class="chip o">售完即止</span></div><div class="meta"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Air+Itam+Laksa+Penang">📍 导航</a></div></div>
+          <div class="ti hi"><div class="tm">13:45</div><h4>🛕 极乐寺</h4><p>东南亚规模最大的华人佛寺之一，依山而建。含七层万佛塔与巨型观音圣像，寺内斜坡可步行或搭小缆车。<b>着装需遮肩遮膝。</b></p>
+            <a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Kek+Lok+Si+Temple+Penang">📍 导航</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城极乐寺">📸 小红书</a></div>
 
-          <div class="ti hi"><div class="tm">13:45</div><h4>🛕 极乐寺 Kek Lok Si Temple</h4><p>东南亚规模最大的华人佛寺之一，依山而建、层层叠叠，含七层万佛塔（中泰缅三种建筑风格）与巨型观音圣像。<b>寺庙本身免门票</b>，只有万佛塔、观音区等分项需小额购票。</p><div class="meta"><span class="chip">08:30–17:30</span><span class="chip g">免门票</span><span class="chip">万佛塔 RM2 / 观音区 RM2 / 斜坡缆车往返 RM6</span><span class="chip p">着装需遮肩遮膝</span><span class="chip">1.5–2 小时</span></div><div class="meta"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Kek+Lok+Si+Temple+Penang">📍 导航</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城极乐寺">📸 小红书</a></div></div>
+          <div class="ti"><div class="tm">15:45</div><h4>🚗 前往峇都丁宜海滩</h4><p>穿岛北行，约 30–40 分钟，路上会经过槟城最长的海岸公路。</p></div>
 
-          <div class="ti"><div class="tm">15:45</div><h4>🚗 Grab 前往峇都丁宜海滩</h4><p>穿岛北行，路上会经过槟城最长的海岸公路。</p><div class="meta"><span class="chip">30–40 分钟</span><span class="chip">约 RM25–35</span></div></div>
+          <div class="ti hi"><div class="tm">16:30</div><h4>🏖️ 峇都丁宜海滩</h4><p>槟城最成熟的海滨度假区，椰林成排，看日落的好位置。海水一般，重点在氛围。</p>
+            <a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Batu+Ferringhi+Beach+Penang">📍 导航</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=峇都丁宜海滩">📸 小红书</a></div>
 
-          <div class="ti hi"><div class="tm">16:30</div><h4>🏖️ 峇都丁宜海滩 + 芒果冰沙</h4><p>槟城最成熟的海滨度假区，沙滩平缓、椰林成排，看日落的好位置。海水品质一般，重点在氛围。可体验香蕉船、水上摩托。</p><div class="meta"><span class="chip">免费</span><span class="chip">日落约 19:00</span></div><div class="meta"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Batu+Ferringhi+Beach+Penang">📍 导航</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=峇都丁宜海滩">📸 小红书</a></div></div>
+          <div class="ti"><div class="tm">18:00</div><h4>🛍️ 峇都丁宜夜市</h4><p>沙滩旁的手工艺品、服饰摊档，价格可议。</p></div>
 
-          <div class="ti"><div class="tm">18:00</div><h4>🛍️ 峇都丁宜夜市（每日营业）</h4><p>沙滩旁的手工艺品、服饰、纪念品摊档，价格可议。</p></div>
+          <div class="ti fd"><div class="tm">19:45</div><h4>🌙 汕头街夜市</h4><p>槟城「美食灵魂」。必点：炒粿条、蚝煎、四果汤、糖水，再配一碗卤味。</p>
+            <a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Kimberley+Street+Food+Penang">📍 导航</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城汕头街美食">📸 小红书</a></div>
 
-          <div class="ti"><div class="tm">18:45</div><h4>🚗 返回乔治市 · 汕头街夜市晚餐</h4><p>若更想感受老城烟火气，直接 Grab 回市区，约 40 分钟。</p><div class="meta"><span class="chip">约 RM30–40</span></div></div>
-
-          <div class="ti fd"><div class="tm">19:45</div><h4>🌙 汕头街夜市</h4><p>槟城「美食灵魂」。必点组合：<b>炒粿条、蚝煎、四果汤、糖水</b>，再配一碗卤味。摊档价格多在 RM5–15 一份。</p><div class="meta"><span class="chip">人均 RM20–30</span></div><div class="meta"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Kimberley+Street+Food+Penang">📍 导航</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城汕头街美食">📸 小红书</a></div></div>
-
-          <div class="ti"><div class="tm">21:30</div><h4>回酒店</h4><p>明天是最后一天 + 夜航，今晚把大部分行李收好。</p></div>
+          <div class="ti"><div class="tm">21:30</div><h4>回酒店</h4><p>今晚把大部分行李收好。</p></div>
         </div>
       </div>
     </div>
@@ -554,104 +383,66 @@
     <!-- DAY 3 -->
     <div class="panel" data-panel="3">
       <div class="callout" style="margin-top:0">
-        <b>今天是「白天玩 + 深夜飞」的双段日。</b>关键不是玩多少，而是<b>20:30 前必须回到酒店取行李、冲凉、换衣服</b>——你要在飞机上过夜，清爽出发和疲劳出发的体验差很多。
+        <b>白天玩 + 深夜飞的双段日。</b>关键不是玩多少，而是 <b>20:30 前必须回酒店取行李、冲凉换衣</b>——要在飞机上过夜。
       </div>
       <div class="card" style="padding:16px 16px 2px">
         <div class="tl">
-          <div class="ti fd"><div class="tm">08:00</div><h4>🥟 早茶：点心楼 / 老字号茶餐室</h4><p>烧卖、虾饺、叉烧包配一壶茶。老字号点心楼多在 07:00 前后开档，「推车点心」的老派体验值得一试。</p><div class="meta"><span class="chip">人均 RM15–25</span><span class="chip">1 小时</span></div></div>
+          <div class="ti fd"><div class="tm">08:00</div><h4>🥟 早茶：点心楼</h4><p>烧卖、虾饺、叉烧包配一壶茶；老字号多在 07:00 前后开档。</p></div>
 
-          <div class="ti hi"><div class="tm">09:30</div><h4>💙 蓝屋 · 张弼士故居</h4><p>通体「东方靛蓝」外墙的百年豪宅。<b>注意：内部现为精品酒店，参观必须参加定时导览</b>，场次有限、名额不多，建议前一天先确认当天场次并提前到场买票。若时间不合适，可改参观附近的孙中山纪念馆或槟城州博物馆。</p><div class="meta"><span class="chip">需参加导览</span><span class="chip">约 RM25（现场为准）</span><span class="chip">1 小时</span></div><div class="meta"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Cheong+Fatt+Tze+Mansion+Penang">📍 导航</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城蓝屋张弼士故居">📸 小红书</a></div></div>
+          <div class="ti hi"><div class="tm">09:30</div><h4>💙 蓝屋 · 张弼士故居</h4><p>通体「东方靛蓝」外墙的百年豪宅。<b>内部现为精品酒店，参观必须参加定时导览</b>，名额有限，建议前一天先确认场次。</p>
+            <a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Cheong+Fatt+Tze+Mansion+Penang">📍 导航</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城蓝屋张弼士故居">📸 小红书</a></div>
 
-          <div class="ti"><div class="tm">11:00</div><h4>🛕 小印度 + 新街 + 老城最后漫步</h4><p>从蓝屋步行可达：小印度的香料店与印度庙、新街骑楼街景。想补拍壁画可再绕一回 Armenian Street。这是全程最舒服的一段 Citywalk。</p><div class="meta"><span class="chip">免费</span><span class="chip">1–1.5 小时</span></div><div class="meta"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Little+India+George+Town+Penang">📍 导航</a></div></div>
+          <div class="ti"><div class="tm">11:00</div><h4>🛕 小印度 + 新街 + 老城漫步</h4><p>香料店、印度庙、新街骑楼街景，全程步行可达，是最舒服的一段 Citywalk。</p></div>
 
-          <div class="ti fd"><div class="tm">12:30</div><h4>🍜 午餐 + 伴手礼采购</h4><p>最后一顿可以奢侈一点，选一家娘惹菜馆。伴手礼建议：<b>豆蔻油 / 豆蔻膏</b>（槟城特产）、<b>白咖喱面 / 虾面酱料包</b>、<b>淡汶饼、豆沙饼</b>、本地白咖啡。</p><div class="meta"><span class="chip">人均 RM25–60</span><span class="chip">伴手礼 RM50–150</span></div><div class="meta"><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城伴手礼">📸 小红书</a></div></div>
+          <div class="ti fd"><div class="tm">12:30</div><h4>🍜 午餐 + 伴手礼采购</h4><p>最后一顿可以奢侈一点，选家娘惹菜馆。伴手礼：豆蔻油、白咖喱面/虾面酱料包、淡汶饼、豆沙饼、白咖啡。</p>
+            <a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城伴手礼">📸 小红书</a></div>
 
-          <div class="ti"><div class="tm">14:00</div><h4>😴 回酒店：收拾行李 + 冲凉 + 补眠</h4><p>这一段是今天最值钱的两小时。整理行李、洗个澡、躺一会儿。<b>前提是你订了 9/27 当晚的房间</b>（详见住宿章节——如果只订到 9/27 中午退房，就只能寄存行李，无法冲凉）。</p></div>
+          <div class="ti"><div class="tm">14:00</div><h4>😴 回酒店：收拾 + 冲凉 + 补眠</h4><p>今天最值钱的两小时。需要保留 9/27 当晚的房间才用得上（见住宿一节）。</p></div>
 
-          <div class="ti"><div class="tm">16:30</div><h4>🌇 加菜选项：姓氏桥日落 / The Top 观景台 / 州博物馆</h4><p>体力足够就再出门。姓氏桥傍晚光线最好；The Top（光大大厦）可俯瞰全城；若想吹空调，槟城州博物馆与美术馆是好选择。</p><div class="meta"><span class="chip">免费 – RM30</span></div></div>
+          <div class="ti"><div class="tm">16:30</div><h4>🌇 可选：姓氏桥日落 / The Top 观景台</h4><p>体力够就再出门；不想动就在酒店休息。</p></div>
 
-          <div class="ti fd"><div class="tm">18:30</div><h4>🍽️ 晚餐：娘惹菜馆</h4><p>用一顿正襟危坐的娘惹菜收尾：叻沙、咖喱鸡、阿杂、黑果焖鸡。</p><div class="meta"><span class="chip">人均 RM30–60</span><span class="chip">1.5 小时</span></div></div>
+          <div class="ti fd"><div class="tm">18:30</div><h4>🍽️ 晚餐：娘惹菜馆</h4><p>叻沙、咖喱鸡、阿杂、黑果焖鸡，正襟危坐收个尾。</p></div>
 
-          <div class="ti hi"><div class="tm">20:30</div><h4>🧳 回酒店取行李 · 冲凉 · 换衣服</h4><p>准备过夜航班：颈枕、眼罩、薄外套放随身包；充电宝随身（不可托运）。</p></div>
+          <div class="ti hi"><div class="tm">20:30</div><h4>🧳 取行李 · 冲凉 · 换衣服</h4><p>颈枕、眼罩、薄外套放随身包；充电宝必须随身、不可托运。</p></div>
 
-          <div class="ti"><div class="tm">21:15</div><h4>🚗 出发前往槟城机场</h4><p>车程 25–35 分钟，但 9 月午后到夜间常有雷阵雨造成拥堵，<b>务必留足缓冲</b>。</p><div class="meta"><span class="chip">25–35 分钟</span><span class="chip">约 RM25–35</span><span class="chip o">雨天易堵</span></div></div>
+          <div class="ti"><div class="tm">21:15</div><h4>🚗 出发前往机场</h4><p>车程 25–35 分钟，雨天易堵，务必留足缓冲。</p></div>
 
-          <div class="ti"><div class="tm">22:00</div><h4>✈️ 抵达槟城机场，办理值机托运</h4><p>按订单提示提前 3 小时到。注意：<b>凌晨航班的值机柜台开放时间可能晚于 22:00</b>，到早了先在出发层等候区休息，别走远。</p><div class="meta"><span class="chip">提前 3 小时</span></div></div>
+          <div class="ti"><div class="tm">22:00</div><h4>✈️ 抵达槟城机场</h4><p>提前 3 小时到。凌晨航班值机柜台可能晚于 22:00 开放，先在出发层等候区休息，别走远。</p></div>
 
-          <div class="ti"><div class="tm">01:00</div><h4>🛫 UO769 起飞</h4><p>航程 3 小时 55 分。上机就睡。</p></div>
-
-          <div class="ti"><div class="tm">04:55</div><h4>🛬 抵达香港 T1</h4><p>机场快线首班约 05:50；若不相等，可选通宵巴士 N 线或的士。行李别忘在转盘。</p><div class="meta"><span class="chip">9/28 周一</span></div></div>
+          <div class="ti"><div class="tm">01:00</div><h4>🛫 UO769 起飞 → 04:55 抵港 T1</h4><p>航程 3 小时 55 分，上机就睡。抵港后机场快线首班约 05:50。</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== 加菜清单 ========== -->
-  <section id="extra">
-    <div class="s-head"><span class="idx">04</span><h2>加菜清单（若节奏比预期快）</h2></div>
-    <p class="s-desc">3 个整天在槟城算宽裕。如果某天下午提前走完，或想把行程再丰富一点，可以从这里挑。</p>
-
-    <details open>
-      <summary>可选景点与体验</summary>
-      <div class="dbody">
-        <ul>
-          <li><b>槟城国家公园 + 猴滩</b>——免费入场但需登记。徒步约 1.5–2 小时到 Monkey Beach，也可乘船。适合想走自然线的半天。</li>
-          <li><b>Entopia 蝴蝶公园</b>（Teluk Bahang）——室内外结合的生态园，亲子友好，票价中等偏上。</li>
-          <li><b>热带香料园</b>——花园导览 + 香料知识，靠近峇都丁宜，可与海滩拼同一天。</li>
-          <li><b>The Top @ Komtar 观景台</b>——彩虹玻璃步道 + 全城视野，傍晚去最漂亮。</li>
-          <li><b>孙中山纪念馆</b>——槟城会议遗址，历史爱好者值得一看。</li>
-          <li><b>槟城州博物馆 &amp; 美术馆</b>——老建筑内的常设展，午后避雨避晒的好去处。</li>
-          <li><b>姓氏桥巡礼</b>——不止姓周桥，还有姓林桥、姓李桥等 6 座，各有生活气息。</li>
-          <li><b>老城咖啡馆巡礼</b>——乔治市独立咖啡馆密度极高，下雨时最舒服的躲法。</li>
-        </ul>
-      </div>
-    </details>
-
-    <details>
-      <summary>雨天备案（9 月降雨概率高）</summary>
-      <div class="dbody">
-        <ul>
-          <li>把<b>侨生博物馆、蓝屋、州博物馆、The Top</b> 留作雨天主选——全部室内。</li>
-          <li>升旗山雨后能见度差，<b>若当天上午天空阴沉，直接与极乐寺对调</b>，把登高挪到另一天。</li>
-          <li>老城骑楼可遮雨，壁画街即使下雨也能短距离移动，但墙面反光、拍照效果打折。</li>
-          <li>咖啡馆 + 茶餐室是最实用的雨天庇护所，随时进随时有。</li>
-        </ul>
-      </div>
-    </details>
-  </section>
-
-  <!-- ========== 交通 ========== -->
-  <section id="transit">
-    <div class="s-head"><span class="idx">05</span><h2>市内交通与耗时对照</h2></div>
-    <p class="s-desc">不需要租车。老城靠走，跨区全用 Grab，世遗区另有免费 CAT 巴士兜底。</p>
+  <!-- ========== 景点速查 ========== -->
+  <section id="sights">
+    <div class="s-head"><span class="idx">03</span><h2>景点速查</h2></div>
+    <p class="s-desc">门票与开放时间来自公开资料，景区调价频繁，以现场为准。</p>
 
     <div class="kv">
-      <div class="kv-row"><span class="k">机场 → 乔治市老城</span><span class="v">Grab 25–35 分钟 · <b>RM25–35</b></span></div>
-      <div class="kv-row"><span class="k">老城 → 升旗山缆车站</span><span class="v">Grab 20–25 分钟 · <b>RM15–20</b></span></div>
-      <div class="kv-row"><span class="k">升旗山 → 极乐寺</span><span class="v">Grab 约 10 分钟 · <b>RM8–12</b></span></div>
-      <div class="kv-row"><span class="k">老城 → 峇都丁宜</span><span class="v">Grab 30–40 分钟 · <b>RM25–35</b></span></div>
-      <div class="kv-row"><span class="k">老城 → 新关仔角</span><span class="v">Grab 10–15 分钟 · <b>RM8–12</b></span></div>
-      <div class="kv-row"><span class="k">世遗区内短程</span><span class="v">步行 5–15 分钟（走路常比坐车快）</span></div>
-      <div class="kv-row"><span class="k">世遗区环线</span><span class="v">CAT 免费巴士 · 约 20 分钟一班 · <b>免费</b></span></div>
-      <div class="kv-row"><span class="k">凌晨机场接机</span><span class="v">预约接送 <b>RM40–60</b>（推荐，勿赌 Grab）</span></div>
-    </div>
-
-    <div class="grid2" style="margin-top:12px">
-      <div class="mini"><h4>Grab 使用要点</h4><p>必须用 App 下单、绑定信用卡。雨天与夜市散场时段会动态加价，建议提前 10 分钟叫车。</p></div>
-      <div class="mini"><h4>要不要租摩托</h4><p>不推荐。槟城左侧行驶、车流密集，加上 9 月午后雷雨路滑，短行程租车不划算也不安全。</p></div>
+      <div class="kv-row"><span class="k">侨生博物馆<small>《小娘惹》取景地</small></span><span class="v">成人 <b>RM30</b>（含导览）<br>09:30–17:30 · 1.5h</span></div>
+      <div class="kv-row"><span class="k">壁画街 + 姓周桥<small>含 52 座铁线雕塑</small></span><span class="v"><b>免费</b><br>全天 · 1.5–2h</span></div>
+      <div class="kv-row"><span class="k">蓝屋 张弼士故居<small>需跟定时导览，名额有限</small></span><span class="v">约 <b>RM25</b><br>场次有限 · 1h</span></div>
+      <div class="kv-row"><span class="k">升旗山 + The Habitat<small>周六排队久，建议快速通道</small></span><span class="v">缆车往返 <b>RM30–40</b>／快速通道约 RM80<br>The Habitat 另购 · 3–3.5h</span></div>
+      <div class="kv-row"><span class="k">极乐寺<small>着装需遮肩遮膝</small></span><span class="v">寺庙<b>免门票</b>；万佛塔 RM2、观音区 RM2、斜坡缆车往返 RM6<br>08:30–17:30 · 1.5–2h</span></div>
+      <div class="kv-row"><span class="k">峇都丁宜海滩<small>可玩香蕉船、水上摩托</small></span><span class="v"><b>免费</b><br>全天 · 日落约 19:00</span></div>
+      <div class="kv-row"><span class="k">圣乔治教堂 / 康华丽堡<small>外观快闪即可</small></span><span class="v">外观<b>免费</b><br>白天 · 30–40min</span></div>
+      <div class="kv-row"><span class="k">新关仔角夜市<small>海滨夜市，摊档多</small></span><span class="v">18:00 后开档 · 1.5h</span></div>
+      <div class="kv-row"><span class="k">汕头街夜市<small>老城烟火气最浓</small></span><span class="v">傍晚起 · 1.5h</span></div>
     </div>
   </section>
 
-  <!-- ========== 美食 ========== -->
+  <!-- ========== 美食推荐 ========== -->
   <section id="food">
-    <div class="s-head"><span class="idx">06</span><h2>美食清单</h2></div>
-    <p class="s-desc">槟城街头小吃本身就是世界文化遗产的一部分。街头摊档多落在 RM4–15，茶餐室与餐馆人均 RM15–60。</p>
+    <div class="s-head"><span class="idx">04</span><h2>美食推荐</h2></div>
+    <p class="s-desc">槟城街头小吃本身就是世界文化遗产的一部分。街头摊档多在 RM4–15，茶餐室与餐馆人均 RM15–60。</p>
 
     <div class="card pad">
       <div class="fgrp">
         <div class="h">招牌必吃 · 五件套</div>
-        <div class="fr"><span class="nm"><b>亚参叻沙 Asam Laksa</b><small>Air Itam 亚依淡摊位｜上午开摊，售完即止</small></span><span class="pv">RM8–12</span></div>
-        <div class="fr"><span class="nm"><b>炭烧炒粿条</b><small>汕头街 / 新关仔角｜隐藏吃法：加「鸭蛋」更香</small></span><span class="pv">RM8–15</span></div>
+        <div class="fr"><span class="nm"><b>亚参叻沙 Asam Laksa</b><small>Air Itam 亚依淡｜上午开摊，售完即止</small></span><span class="pv">RM8–12</span></div>
+        <div class="fr"><span class="nm"><b>炭烧炒粿条</b><small>汕头街 / 新关仔角｜加「鸭蛋」更香</small></span><span class="pv">RM8–15</span></div>
         <div class="fr"><span class="nm"><b>福建面（虾面）</b><small>新街茶餐室｜虾汤熬底，鲜味极浓</small></span><span class="pv">RM8–12</span></div>
         <div class="fr"><span class="nm"><b>蚝煎</b><small>汕头街夜市｜木薯粉浆裹鲜蚝，铁板现煎</small></span><span class="pv">RM10–15</span></div>
         <div class="fr"><span class="nm"><b>煎蕊 Cendol</b><small>槟城律老字号｜椰糖 + 椰浆 + 绿粉条</small></span><span class="pv">RM4–6</span></div>
@@ -659,9 +450,9 @@
 
       <div class="fgrp">
         <div class="h">茶餐室 · 早餐与下午茶</div>
-        <div class="fr"><span class="nm"><b>炭烤面包 + 半熟蛋 + 海南咖啡</b><small>多春茶室等老字号｜常需排队，7:30 前最稳</small></span><span class="pv">RM10–15</span></div>
+        <div class="fr"><span class="nm"><b>炭烤面包 + 半熟蛋 + 海南咖啡</b><small>多春茶室｜常排队，7:30 前最稳</small></span><span class="pv">RM10–15</span></div>
         <div class="fr"><span class="nm"><b>粿条汤</b><small>椰脚 / 天皇鸡脚粿条汤｜清汤系，配鸡脚更地道</small></span><span class="pv">RM8–12</span></div>
-        <div class="fr"><span class="nm"><b>广式点心</b><small>老字号点心楼｜推车点心，07:00 前后开档</small></span><span class="pv">RM15–25</span></div>
+        <div class="fr"><span class="nm"><b>广式点心</b><small>老字号点心楼｜07:00 前后开档</small></span><span class="pv">RM15–25</span></div>
         <div class="fr"><span class="nm"><b>白咖喱面 / 海南鸡饭</b><small>茶餐室常见主食｜白咖喱面是槟城发明</small></span><span class="pv">RM8–15</span></div>
       </div>
 
@@ -676,175 +467,56 @@
     <div class="callout">
       <b>点餐小抄</b>
       <ul>
-        <li>饮料<b>少甜</b>：「Kurang manis」——槟城饮料默认非常甜，不说会齁。</li>
-        <li>炒粿条<b>加鸭蛋</b>：比鸡蛋更香更浓，本地人的隐藏吃法。</li>
-        <li>选摊原则：<b>排队的本地人越多越靠谱</b>；只有游客、有中英文大菜单的，大概率是游客陷阱。</li>
-        <li>现金为王：夜市摊档多数不收卡，带够 RM10、RM5 面额零钱。</li>
+        <li>饮料<b>少甜</b>说「Kurang manis」——槟城饮料默认很甜。</li>
+        <li>选摊原则：<b>排队的本地人越多越靠谱</b>。</li>
+        <li>夜市多数不收卡，带够 RM10、RM5 零钱。</li>
       </ul>
     </div>
   </section>
 
-  <!-- ========== 住宿 ========== -->
+  <!-- ========== 住宿推荐 ========== -->
   <section id="stay">
-    <div class="s-head"><span class="idx">07</span><h2>住宿：晚数与档位</h2></div>
-    <p class="s-desc">你的航班决定了住宿结构和别人不一样，这一段请务必读完。</p>
-
-    <div class="callout p">
-      <b>关键：要订 4 晚，而且第一晚是 9/24</b>
-      <ul>
-        <li>你 9/25 凌晨 00:15 落地、约 01:30 到酒店。酒店计费按「当晚」算，凌晨入住属于 <b>9/24 那一晚</b>。如果只订「9/25 入住」，前台很可能告诉你房间要下午 3 点才能给。</li>
-        <li>完整跨度：<b>9/24 入住 → 9/28 凌晨退房</b>，共 4 个房晚（9/24、9/25、9/26、9/27）。</li>
-        <li>其中最容易被忽略的是 <b>9/27 那一晚</b>：你当晚 21:15 就离开去机场，房间实际只用了几小时。但这几小时能做三件事——放行李、冲凉换衣、躺一会儿再上夜航，体验差别很大。</li>
-        <li><b>省钱替代方案：</b>只订 3 晚（9/24–9/27 中午退房），9/27 退房后把行李寄存在酒店或附近寄存点，晚上直接去机场。省下 1 晚房费，代价是没有地方冲凉休息。若你体力好、怕麻烦，这也是完全可行的选择。</li>
-      </ul>
-    </div>
+    <div class="s-head"><span class="idx">05</span><h2>住宿推荐</h2></div>
+    <p class="s-desc">强烈建议住<b>乔治市世遗区</b>——壁画街、姓氏桥、侨生博物馆、蓝屋、夜市都在步行或 10 分钟车程内。</p>
 
     <div class="grid2">
       <div class="mini">
         <h4>💰 经济型</h4>
-        <div class="p2">约 RM150 / 晚 · 4 晚约 HK$540 / 人（双人分摊）</div>
-        <p>Chulia Street、Love Lane 一带的精品民宿与背包客栈。房间偏小、隔音一般，但位置极佳，老板通常很会推荐本地美食。</p>
+        <div class="p2">约 RM150 / 晚</div>
+        <p>Chulia Street、Love Lane 一带的民宿与背包客栈。房间偏小、隔音一般，但位置极佳，老板通常很会推荐本地美食。</p>
       </div>
       <div class="mini">
         <h4>🏨 舒适型（推荐）</h4>
-        <div class="p2">约 RM350 / 晚 · 4 晚约 HK$1,260 / 人（双人分摊）</div>
-        <p>世遗区内战前老屋改造的精品酒店，含早餐、保留骑楼天井与娘惹装饰。这个档位是本行程的甜点区——花不多的钱住进百年建筑。</p>
+        <div class="p2">约 RM350 / 晚</div>
+        <p>世遗区内战前老屋改造的精品酒店，含早餐，保留骑楼天井与娘惹装饰。这个档位性价比最高。</p>
       </div>
       <div class="mini">
         <h4>✨ 豪华型</h4>
-        <div class="p2">约 RM800 / 晚 · 4 晚约 HK$2,880 / 人（双人分摊）</div>
-        <p>Eastern &amp; Oriental（百年殖民风海滨经典）、The Edison 等翻新世遗建筑酒店。适合想给旅程加仪式感。</p>
+        <div class="p2">约 RM800 / 晚</div>
+        <p>Eastern &amp; Oriental（百年殖民风海滨经典）、The Edison 等翻新世遗建筑酒店，适合加一点仪式感。</p>
       </div>
       <div class="mini">
-        <h4>📍 住哪一区</h4>
-        <p>强烈建议<b>乔治市世遗区</b>：壁画街、姓氏桥、侨生博物馆、蓝屋、夜市都在步行或 10 分钟车程内。峇都丁宜海边虽舒服，但每天往返市区要 1 小时以上，短行程不建议。</p>
+        <h4>📅 要订几晚</h4>
+        <p><b>4 晚（9/24 入住 → 9/28 凌晨退房）</b>。凌晨抵达必须从 <b>9/24</b> 订起，否则前台不会给你房间。9/27 那晚虽然 21:15 就走，但能放行李、冲凉换衣再上夜航。<br>想省钱可只订 3 晚，退房后寄存行李，代价是没地方冲凉。</p>
       </div>
     </div>
 
-    <div class="callout b">
-      <b>订房四个硬提醒</b>
-      <ul>
-        <li>下单后<b>立刻发消息确认凌晨 01:30 可入住</b>，并问清是柜台有人还是自助取钥匙。这是本次行程最容易翻车的一点。</li>
-        <li>老屋改造酒店<b>楼板薄、隔音差</b>是普遍现象，浅眠者可备注要安静房间或选新楼翼。</li>
-        <li>世遗区内很多酒店<b>没有电梯</b>，带 28 寸行李箱要有心理准备；部分旅宿不提供一次性牙具。</li>
-        <li>9/25（周五）、9/26（周六）两晚房价高于平日，建议尽早预订。</li>
-      </ul>
+    <div class="callout p">
+      <b>订房必做一件事</b>：给酒店发消息确认「<b>凌晨 01:30 可办理入住</b>」。乔治市不少老屋精品酒店前台并非 24 小时，这是本行程最容易翻车的地方。
     </div>
   </section>
 
-  <!-- ========== 预算 ========== -->
-  <section id="budget">
-    <div class="s-head"><span class="idx">08</span><h2>当地花费测算</h2></div>
-    <p class="s-desc">机票已出票，下面是「落地后」的花费估算。汇率按 RM1 ≈ HK$1.8 换算，点选档位即可看到合计。</p>
-
-    <div class="card">
-      <div class="calc-row">
-        <div class="lb">住宿档位<small>每晚房价（RM）</small></div>
-        <div class="seg" data-key="rate">
-          <button data-v="150">经济 150</button>
-          <button data-v="350" class="on">舒适 350</button>
-          <button data-v="800">豪华 800</button>
-        </div>
-      </div>
-      <div class="calc-row">
-        <div class="lb">住宿晚数<small>9/27 那晚留不留，看你要不要冲凉休息</small></div>
-        <div class="seg" data-key="nights">
-          <button data-v="3">3 晚</button>
-          <button data-v="4" class="on">4 晚</button>
-        </div>
-      </div>
-      <div class="calc-row">
-        <div class="lb">同住方式</div>
-        <div class="seg" data-key="occ">
-          <button data-v="2" class="on">双人同房</button>
-          <button data-v="1">单人独住</button>
-        </div>
-      </div>
-      <div class="calc-row">
-        <div class="lb">餐饮<small>3 个整天，茶餐室 + 夜市为主</small></div>
-        <div class="seg" data-key="food">
-          <button data-v="100">节省 100/天</button>
-          <button data-v="165" class="on">正常 165/天</button>
-          <button data-v="265">讲究 265/天</button>
-        </div>
-      </div>
-      <div class="calc-row">
-        <div class="lb">市内交通<small>3 天 Grab 为主 + CAT 免费巴士</small></div>
-        <div class="seg" data-key="move">
-          <button data-v="100">RM100</button>
-          <button data-v="150" class="on">RM150</button>
-          <button data-v="220">RM220</button>
-        </div>
-      </div>
-      <div class="calc-row">
-        <div class="lb">门票与体验<small>升旗山 + 侨生博物馆 + 极乐寺等</small></div>
-        <div class="seg" data-key="ticket">
-          <button data-v="60">约 RM60</button>
-          <button data-v="128" class="on">含快速通道 RM128</button>
-          <button data-v="200">含 The Habitat</button>
-        </div>
-      </div>
-      <div class="calc-row">
-        <div class="lb">购物与伴手礼</div>
-        <div class="seg" data-key="shop">
-          <button data-v="90">HK$90</button>
-          <button data-v="250" class="on">HK$250</button>
-          <button data-v="500">HK$500</button>
-        </div>
-      </div>
-      <div class="total">
-        <span class="l">落地后预估<br>合计 / 人</span>
-        <span class="a" id="totalAmt">HK$2,900<small> 左右</small></span>
-        <span class="rm" id="totalRm"></span>
-      </div>
-    </div>
-
-    <div class="callout" style="margin-top:12px">
-      <b>不含在里面的三项</b>
-      <ul>
-        <li><b>机票：</b>已出票，实际金额以你的订单为准（UO768 + UO769，各含 1 件 20kg）。</li>
-        <li><b>旅行保险：</b>约 HK$80–200。9 月同时是槟城雨季与香港台风季，延误条款值得买。</li>
-        <li><b>香港机场往返交通：</b>你的回程 04:55 抵港，需用通宵巴士或的士，比白天贵一些。</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ========== 贴士 ========== -->
+  <!-- ========== 实用贴士 ========== -->
   <section id="tips">
-    <div class="s-head"><span class="idx">09</span><h2>实用贴士与打包清单</h2></div>
+    <div class="s-head"><span class="idx">06</span><h2>实用贴士</h2></div>
 
     <div class="grid2">
-      <div class="mini"><h4>🌦️ 天气与穿着</h4><p>全年如夏，9–11 月降雨偏多、9 月常为最潮湿月份之一，多为午后短时雷阵雨。轻薄透气短袖 + 防晒 + 折叠伞。寺庙需遮肩遮膝，带一条薄披肩既防晒又应急。夜航建议穿长裤 + 薄外套。</p></div>
-      <div class="mini"><h4>💱 货币与支付</h4><p>马币 MYR（RM），参考汇率 RM1 ≈ HK$1.8。夜市与老茶室以现金为主，备 RM300–500 零钱；酒店、连锁餐厅、Grab 可刷卡。机场凌晨无兑换点。</p></div>
-      <div class="mini"><h4>🔌 插座与电压</h4><p>英标 G 型三脚、240V——<b>与香港完全一致，免转换头</b>。老屋酒店插座少，带一个多口 USB 充电头很实用。</p></div>
-      <div class="mini"><h4>🗣️ 语言</h4><p>英语普及度高，乔治市华人聚集，<b>华语、福建话、粤语都能通用</b>，点餐购物几乎零障碍。</p></div>
-      <div class="mini"><h4>🛡️ 安全与礼仪</h4><p>槟城是马来西亚治安相对较好的城市，但夜市、车站等拥挤处注意随身财物，夜间避免偏僻小巷。进清真寺脱鞋，进佛寺着装得体。小费非强制。</p></div>
-      <div class="mini"><h4>🚰 饮水与肠胃</h4><p>自来水不建议直饮，便利店买瓶装水。初次尝试街头小吃建议避开生冷与久置食物，随身带肠胃药与退烧药。</p></div>
-    </div>
-
-    <h3 style="font-size:15px;margin:22px 0 10px">打包清单</h3>
-    <div class="grid2">
-      <div class="mini"><h4>证件类</h4><p>护照（有效期 ≥ 6 个月）· MDAC 截图 · 回程机票 · 住宿订单（9/24–9/28）· 旅游保险单 · <b>全部存本地相册</b></p></div>
-      <div class="mini"><h4>夜航专用</h4><p>颈枕 · 眼罩 · 耳塞 · 薄外套或长袖 · 拖鞋 · 充电宝（<b>必须随身，不可托运</b>）· 一套换洗衣物放手提包</p></div>
-      <div class="mini"><h4>电子类</h4><p>手机 + 充电器 · 多口 USB 充电头 · 充电宝 · 耳机 ·（马国与香港插座一致，无需转换头）</p></div>
-      <div class="mini"><h4>衣着类</h4><p>轻薄短袖 ×3 · 短裤 / 长裙 · 薄外套 · 一双好走的鞋 · 拖鞋 · 薄披肩（进寺庙用）</p></div>
-      <div class="mini"><h4>防晒防雨</h4><p>折叠伞 / 轻便雨衣 · 防晒霜 · 墨镜 · 遮阳帽</p></div>
-      <div class="mini"><h4>支付与药品</h4><p>信用卡（Grab 绑定）· 现金 RM300–500 · 肠胃药 · 退烧药 · 驱蚊液 · 创可贴 · 个人常备药</p></div>
-    </div>
-  </section>
-
-  <!-- ========== 核验 ========== -->
-  <section id="src">
-    <div class="s-head"><span class="idx">10</span><h2>信息核验说明</h2></div>
-    <p class="s-desc">本页信息按可信度分级，出发前请重点复核「公开数据」与「参考区间」两类。</p>
-
-    <div class="src">
-      <div class="src-row"><span class="lv">订单</span><div><b>航班信息</b>来自你提供的香港快运订单截图：UO768 9/24 20:30 HKG T2 → 9/25 00:15 PEN；UO769 9/28 01:00 PEN → 04:55 HKG T1；各含 1 件 20kg 托运。<b>值机柜台开放时间与航站楼请以起飞前 App 通知为准。</b></div></div>
-      <div class="src-row"><span class="lv">官方</span><div><b>免签与 MDAC</b>：中马互免签证协定（2025-07-17 生效），普通护照停留不超过 30 天、每 180 天累计不超过 90 天；入境前 3 天内须在马来西亚移民局官网填报 MDAC。护照有效期须 ≥ 6 个月。以你 9/25 抵达计，最早 9/22 可填。</div></div>
-      <div class="src-row"><span class="lv b">公开数据</span><div><b>门票价格</b>：升旗山缆车（外国游客普通往返约 RM30–40、快速通道约 RM80）、侨生博物馆（成人约 RM30、含导览）来自官方页面与 2026 年攻略整理；极乐寺免门票，万佛塔 / 观音区各约 RM2、斜坡缆车往返约 RM6。<b>景区调价频繁，以现场为准。</b></div></div>
-      <div class="src-row"><span class="lv c">参考区间</span><div><b>Grab 车费、酒店房价、餐饮价格、汇率</b>均为公开资料整理的区间估算，非实时报价。Grab 存在雨天与高峰动态加价，同一路线可浮动 30% 以上。</div></div>
-      <div class="src-row"><span class="lv c">参考区间</span><div><b>天气</b>：9 月为槟城降雨高峰，午后多短时雷阵雨。请出发前 3 天复核逐日预报，并据此决定升旗山与极乐寺的先后顺序。</div></div>
-      <div class="src-row"><span class="lv b">设计说明</span><div><b>本页为单文件离线网页</b>，不加载任何外部图片或脚本，因此无网络也能完整显示、不会出现破图。<br><b>手机阅读建议：</b>用浏览器打开后选择「添加到主屏幕」，即可像 App 一样随时查阅。<br><b>分享：</b>直接把该 HTML 文件发给同行人，对方用手机浏览器打开即可，无需联网。</div></div>
+      <div class="mini"><h4>🛂 签证</h4><p>马来西亚免签 30 天，须在<b>出发前 3 天内</b>填 MDAC 电子入境卡（免费），截图存手机本地相册。</p></div>
+      <div class="mini"><h4>🌦️ 天气</h4><p>全年如夏，<b>9 月午后多雷阵雨</b>，带折叠伞；升旗山排在上午。进寺庙需遮肩遮膝。</p></div>
+      <div class="mini"><h4>🚗 打车</h4><p>跨区全部用 <b>Grab</b>（装好并绑卡），市区短程 RM5–15，机场到老城 RM25–35。世遗区另有免费 CAT 巴士。</p></div>
+      <div class="mini"><h4>💱 现金</h4><p>参考汇率 RM1 ≈ HK$1.8。夜市只收现金，备 <b>RM300–500</b> 零钱；机场凌晨没有兑换点，需提前换。</p></div>
+      <div class="mini"><h4>🧳 行李</h4><p>已含 <b>1 件 20kg 托运</b>。订单显示无免费手提行李，登机箱需提早在 App 加购，现场买贵很多。</p></div>
+      <div class="mini"><h4>🔌 插座</h4><p>英标 G 型、240V，<b>与香港完全一致，免转换头</b>。老屋酒店插座少，带个多口 USB 充电头。</p></div>
     </div>
   </section>
 </main>
@@ -855,14 +527,13 @@
   <div class="wrap">
     <div class="big">祝你吃得开心 · 走得从容 🌴</div>
     香港 → 槟城 3 日攻略｜9/24 夜出发 · 9/28 凌晨返港<br>
-    基于已出票航班（UO768 / UO769）重排 · 生成日期 2026-09-20<br>
-    价格为公开资料参考区间，出行前请以官方与实时报价复核。
+    基于已出票航班 UO768 / UO769 · 生成日期 2026-09-20<br>
+    门票与价格为公开资料参考区间，出行前请以官方与实时报价复核。
   </div>
 </footer>
 
 <script>
 (function(){
-  // 标签切换
   var tabs = document.querySelectorAll('#dayTabs .tab');
   var panels = document.querySelectorAll('.panel');
   tabs.forEach(function(t){
@@ -870,49 +541,17 @@
       tabs.forEach(function(x){ x.classList.remove('active'); });
       t.classList.add('active');
       var d = t.getAttribute('data-day');
-      panels.forEach(function(p){
-        p.classList.toggle('active', p.getAttribute('data-panel') === d);
-      });
+      panels.forEach(function(p){ p.classList.toggle('active', p.getAttribute('data-panel') === d); });
       var y = document.getElementById('dayTabs').getBoundingClientRect().top + window.pageYOffset - 64;
       window.scrollTo({ top: y, behavior: 'smooth' });
     });
   });
 
-  // 预算计算
-  var st = { rate:350, nights:4, occ:2, food:165, move:150, ticket:128, shop:250 };
-  var amtEl = document.getElementById('totalAmt');
-  var rmEl  = document.getElementById('totalRm');
-  var RATE  = 1.8;
-  function render(){
-    var room  = st.rate * st.nights / st.occ;
-    var food  = st.food * 3;
-    var shopRm = st.shop / RATE;
-    var rm = room + food + st.move + st.ticket + shopRm;
-    var hk = Math.round(rm * RATE / 10) * 10;
-    amtEl.innerHTML = 'HK$' + hk.toLocaleString('en-US') + '<small> 左右</small>';
-    rmEl.textContent = '≈ RM' + Math.round(rm).toLocaleString('en-US');
-  }
-  document.querySelectorAll('.seg').forEach(function(seg){
-    var key = seg.getAttribute('data-key');
-    seg.querySelectorAll('button').forEach(function(btn){
-      btn.addEventListener('click', function(){
-        seg.querySelectorAll('button').forEach(function(b){ b.classList.remove('on'); });
-        btn.classList.add('on');
-        st[key] = parseFloat(btn.getAttribute('data-v'));
-        render();
-      });
-    });
-  });
-  render();
-
-  // 回顶
   var top = document.getElementById('toTop');
   window.addEventListener('scroll', function(){
     top.classList.toggle('show', window.pageYOffset > 600);
   }, { passive:true });
-  top.addEventListener('click', function(){
-    window.scrollTo({ top:0, behavior:'smooth' });
-  });
+  top.addEventListener('click', function(){ window.scrollTo({ top:0, behavior:'smooth' }); });
 })();
 </script>
 </body>
