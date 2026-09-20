@@ -28,42 +28,41 @@
   a{color:var(--indigo-soft);text-decoration:none}
   .wrap{max-width:760px;margin:0 auto;padding:0 16px}
 
-  /* hero */
-  .hero{
-    position:relative;overflow:hidden;color:#fff;padding:34px 0 30px;
-    padding-top:calc(34px + env(safe-area-inset-top));
-    background:
-      radial-gradient(560px 300px at 92% 4%, rgba(217,85,127,.45), transparent 60%),
-      radial-gradient(480px 280px at 4% 96%, rgba(23,128,107,.42), transparent 62%),
-      linear-gradient(160deg,#16224A,#1B2A5B 48%,#26376F);
-  }
-  .hero::after{
-    content:"";position:absolute;inset:0;opacity:.42;pointer-events:none;
+  .photo{position:relative;overflow:hidden;border-radius:12px;
+         background:linear-gradient(135deg,#DCE3F2 0%,#EAF0E6 60%,#F3EDE2 100%)}
+  .photo img{display:block;width:100%;height:100%;object-fit:cover}
+  .photo.ph-fail img{display:none}
+  .photo .cap{position:absolute;left:0;right:0;bottom:0;padding:20px 12px 8px;
+              font-size:12px;color:#fff;letter-spacing:.02em;
+              background:linear-gradient(transparent,rgba(10,15,35,.78))}
+
+  .hero{position:relative;overflow:hidden;color:#fff;padding:34px 0 30px;
+        padding-top:calc(34px + env(safe-area-inset-top));
+        background:
+          radial-gradient(560px 300px at 92% 4%, rgba(217,85,127,.45), transparent 60%),
+          radial-gradient(480px 280px at 4% 96%, rgba(23,128,107,.42), transparent 62%),
+          linear-gradient(160deg,#16224A,#1B2A5B 48%,#26376F)}
+  .hero::after{content:"";position:absolute;inset:0;opacity:.42;pointer-events:none;
     background-image:
       radial-gradient(circle, rgba(255,255,255,.18) 1.4px, transparent 1.5px),
       radial-gradient(circle, rgba(255,255,255,.10) 1.4px, transparent 1.5px);
-    background-size:24px 24px,24px 24px;background-position:0 0,12px 12px;
-  }
+    background-size:24px 24px,24px 24px;background-position:0 0,12px 12px}
   .hero .wrap{position:relative;z-index:2}
-  .kicker{
-    display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.14em;color:#FFD9E5;
-    background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.2);
-    padding:6px 12px;border-radius:999px;margin-bottom:14px;
-  }
+  .kicker{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.14em;color:#FFD9E5;
+          background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.2);
+          padding:6px 12px;border-radius:999px;margin-bottom:14px}
   .hero h1{font-size:clamp(23px,6.4vw,32px);color:#fff;letter-spacing:-.01em}
   .hero h1 em{font-style:normal;color:#FFC9DB}
   .hero p{margin-top:10px;font-size:14.5px;color:rgba(255,255,255,.87)}
   .hero p b{color:#FFE3B0;font-weight:700}
-  .fcard{
-    display:flex;align-items:center;gap:12px;margin-top:14px;
-    background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.22);
-    border-radius:14px;padding:12px 15px;
-  }
+  .hero-photo{aspect-ratio:16/9;margin-top:18px;box-shadow:0 10px 28px rgba(0,0,0,.28)}
+  .fcard{display:flex;align-items:center;gap:12px;margin-top:12px;
+         background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.22);
+         border-radius:14px;padding:12px 15px}
   .fcard .ic{font-size:19px;flex:0 0 auto}
   .fcard .txt{font-size:13.4px;color:#fff;line-height:1.55}
   .fcard .txt small{display:block;color:rgba(255,255,255,.72);font-size:12px;margin-top:1px}
 
-  /* nav */
   .nav{position:sticky;top:0;z-index:60;background:rgba(251,247,241,.94);
        backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   .nav-scroll{display:flex;gap:6px;overflow-x:auto;padding:9px 16px;scrollbar-width:none}
@@ -80,7 +79,14 @@
   .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh)}
   .pad{padding:16px}
 
-  /* 概览 */
+  /* ---------- 导航 / 点评 / 小红书 链接 ---------- */
+  .lks{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .lk{display:inline-flex;align-items:center;gap:4px;font-size:12.2px;font-weight:700;
+      padding:6px 10px;border-radius:9px;border:1px solid #D9E0F2;background:#EEF2FB;
+      color:var(--indigo-soft);white-space:nowrap}
+  .lk.d{border-color:#F6DCC7;background:#FEF3EA;color:#C4560F}
+  .lk.x{border-color:#F6D6DF;background:#FDF0F4;color:#B8446A}
+
   .ov{display:grid;gap:10px}
   .ov-row{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:start;
           background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px 14px;box-shadow:var(--sh)}
@@ -91,10 +97,10 @@
   .ov-row .ttl{font-size:14.6px;font-weight:700;color:var(--ink)}
   .ov-row .sub{font-size:12.9px;color:var(--muted);margin-top:2px}
 
-  .mapbox{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:8px;box-shadow:var(--sh);margin-top:12px}
+  .mapbox{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:8px;
+          box-shadow:var(--sh);margin-top:12px}
   .mapbox svg{width:100%;height:auto;display:block;border-radius:10px}
 
-  /* tabs */
   .tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:14px}
   .tab{font-family:inherit;cursor:pointer;text-align:center;border:1px solid var(--line);
        background:#fff;border-radius:13px;padding:10px 6px;min-height:56px;transition:.16s}
@@ -107,7 +113,6 @@
   .panel.active{display:block;animation:fade .26s ease}
   @keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
 
-  /* 时间轴 */
   .tl{border-left:2.5px solid #E3E7F1;margin-left:6px;padding-left:16px}
   .ti{position:relative;padding-bottom:16px}
   .ti:last-child{padding-bottom:4px}
@@ -118,32 +123,43 @@
   .ti .tm{font-size:12.6px;font-weight:800;color:var(--indigo);font-variant-numeric:tabular-nums}
   .ti h4{font-size:15px;margin-top:1px}
   .ti p{font-size:13.6px;margin-top:3px}
-  .lk{display:inline-flex;align-items:center;gap:4px;font-size:12.4px;font-weight:700;
-      padding:6px 11px;border-radius:9px;border:1px solid #D9E0F2;background:#EEF2FB;color:var(--indigo-soft);margin:7px 6px 0 0}
-  .lk.x{border-color:#F6D6DF;background:#FDF0F4;color:#B8446A}
+  .ti .lks{margin-top:8px}
 
-  /* 速查表 */
-  .kv{background:#fff;border:1px solid var(--line);border-radius:13px;overflow:hidden;box-shadow:var(--sh)}
-  .kv-row{display:grid;grid-template-columns:1fr 1.15fr;gap:10px;padding:12px 14px;
-          border-bottom:1px solid #F2EFE9;font-size:13.4px}
-  .kv-row:last-child{border-bottom:none}
-  .kv-row .k{color:var(--ink);font-weight:700}
-  .kv-row .k small{display:block;font-weight:400;color:var(--muted);font-size:11.8px;margin-top:1px}
-  .kv-row .v{text-align:right;color:var(--body)}
-  .kv-row .v b{color:var(--jade);font-weight:700}
+  .sight{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+         box-shadow:var(--sh);margin-bottom:12px}
+  .sight .photo{aspect-ratio:16/10;border-radius:0}
+  .sight-body{padding:13px 15px 15px}
+  .sight-body h4{font-size:15.2px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .sight-body h4 .tag{font-size:10.8px;font-weight:800;color:#fff;background:var(--pink);
+                      padding:2px 8px;border-radius:999px;letter-spacing:.03em}
+  .sight-body h4 .tag.b{background:var(--jade)}
+  .sight-body p{font-size:13.4px;margin-top:5px}
+  .sight-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+  .sight-meta span{font-size:11.6px;font-weight:700;color:#55607a;background:#F5F3EF;
+                   border:1px solid #EAE6DE;padding:3px 9px;border-radius:8px}
+  .sight-meta span.g{background:var(--jade-bg);border-color:#CDE6DE;color:var(--jade)}
 
-  /* 美食 */
-  .fgrp{margin-bottom:15px}
-  .fgrp:last-child{margin-bottom:0}
-  .fgrp .h{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:800;color:var(--indigo);margin-bottom:8px}
-  .fgrp .h::after{content:"";flex:1;height:1px;background:var(--line)}
+  .foodgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .fcard2{background:#fff;border:1px solid var(--line);border-radius:13px;overflow:hidden;box-shadow:var(--sh)}
+  .fcard2 .photo{aspect-ratio:4/3;border-radius:0}
+  .fcard2 .fb{padding:10px 12px 12px}
+  .fcard2 h4{font-size:13.8px}
+  .fcard2 .fp{font-size:12.6px;font-weight:800;color:var(--jade);margin-top:2px}
+  .fcard2 .fn{font-size:11.8px;color:var(--muted);margin-top:3px;line-height:1.5}
+  .fcard2 .lks{gap:5px;margin-top:9px}
+  .fcard2 .lk{font-size:11.4px;padding:5px 8px;border-radius:8px}
+
   .fr{display:flex;justify-content:space-between;align-items:baseline;gap:10px;background:#fff;
       border:1px solid var(--line);border-radius:11px;padding:10px 13px;margin-bottom:6px;font-size:13.6px}
   .fr .nm b{color:var(--ink)}
   .fr .nm small{display:block;color:var(--muted);font-size:12px;margin-top:1px}
   .fr .pv{font-weight:800;color:var(--jade);white-space:nowrap;font-size:13px}
+  .fr-w{background:#fff;border:1px solid var(--line);border-radius:11px;padding:11px 13px;margin-bottom:7px}
+  .fr-w .ftop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:13.6px}
+  .fr-w .ftop b{color:var(--ink)}
+  .fr-w .ftop small{color:var(--muted);font-size:12px}
+  .fr-w .pv{font-weight:800;color:var(--jade);white-space:nowrap;font-size:13px}
 
-  /* 卡片网格 */
   .grid2{display:grid;gap:10px}
   .mini{background:#fff;border:1px solid var(--line);border-radius:13px;padding:14px 15px;box-shadow:var(--sh)}
   .mini h4{font-size:14.4px;margin-bottom:5px}
@@ -165,14 +181,9 @@
   .top.show{opacity:1;pointer-events:auto}
 
   footer{margin-top:38px;padding:26px 0 40px;border-top:1px solid var(--line);
-         font-size:12.6px;color:var(--muted);text-align:center}
+         font-size:12.4px;color:var(--muted);text-align:center;line-height:1.9}
   footer .big{font-size:15px;color:var(--ink);font-weight:700;margin-bottom:6px}
 
-  @media (min-width:620px){
-    body{font-size:15.5px}
-    .hero{padding:46px 0 38px}
-    .grid2{grid-template-columns:1fr 1fr}
-  }
   @media print{
     .nav,.top,.tabs{display:none}
     .panel{display:block !important}
@@ -182,7 +193,7 @@
     .panel[data-panel="1"]::before{content:"DAY 1 · 9/25 周五 · 老城世遗"}
     .panel[data-panel="2"]::before{content:"DAY 2 · 9/26 周六 · 上山下海"}
     .panel[data-panel="3"]::before{content:"DAY 3 · 9/27 周日 · 娘惹收尾 + 夜航返港"}
-    .ti,.mini,.fr,.kv-row,.ov-row{page-break-inside:avoid}
+    .ti,.mini,.fr,.fr-w,.sight,.fcard2,.ov-row,.photo{page-break-inside:avoid}
   }
 </style>
 </head>
@@ -193,6 +204,11 @@
     <span class="kicker">2026 秋 · 3 个完整白天 · 世界文化遗产</span>
     <h1>香港 → 槟城 <em>慢食老城</em>三日记</h1>
     <p>9/24 深夜出发，9/28 凌晨返港。直飞 <b>3 小时 45 分</b>，免签入境，落地即走。</p>
+
+    <div class="photo hero-photo">
+      <img src="images/hero.jpg" alt="乔治市世遗区骑楼老街" onerror="this.parentNode.classList.add('ph-fail')">
+      <span class="cap">乔治市世遗区 · 骑楼老街</span>
+    </div>
 
     <div class="fcard">
       <span class="ic">🛫</span>
@@ -209,7 +225,7 @@
   <div class="nav-scroll">
     <a href="#route">路线总览</a>
     <a href="#plan">逐日行程</a>
-    <a href="#sights">景点速查</a>
+    <a href="#sights">景点介绍</a>
     <a href="#food">美食推荐</a>
     <a href="#stay">住宿推荐</a>
     <a href="#tips">实用贴士</a>
@@ -218,10 +234,10 @@
 
 <main class="wrap">
 
-  <!-- ========== 路线总览 ========== -->
+  <!-- ========== 01 路线总览 ========== -->
   <section id="route">
     <div class="s-head"><span class="idx">01</span><h2>路线总览</h2></div>
-    <p class="s-desc">三天动线：老城 → 上山 → 海边 → 老城收尾。市区靠走，跨区全部 Grab。</p>
+    <p class="s-desc">三天动线：老城 → 上山 → 海边 → 老城收尾。市区靠走，跨区全部 Grab。全页每个地点都配了三件套：<b>📍 Google 导航 · 🍽️ 大众点评 · 📕 小红书</b>。</p>
 
     <div class="ov">
       <div class="ov-row">
@@ -230,7 +246,7 @@
       </div>
       <div class="ov-row">
         <div class="day">Day 1<br>9/25</div>
-        <div><div class="ttl">老城世遗</div><div class="sub">凌晨入住补眠 → 侨生博物馆 → 壁画街 · 姓周桥 → 新关仔角夜市</div></div>
+        <div><div class="ttl">老城世遗</div><div class="sub">凌晨入住补眠 → 侨生博物馆 → 壁画街 · 姓氏桥 → 新关仔角夜市</div></div>
       </div>
       <div class="ov-row d2">
         <div class="day">Day 2<br>9/26</div>
@@ -306,10 +322,10 @@
     </div>
   </section>
 
-  <!-- ========== 逐日行程 ========== -->
+  <!-- ========== 02 逐日行程 ========== -->
   <section id="plan">
     <div class="s-head"><span class="idx">02</span><h2>逐日行程</h2></div>
-    <p class="s-desc">时间点为建议节奏，已含步行与等待缓冲。门票、时长等细节见下一节「景点速查」。</p>
+    <p class="s-desc">时间点为建议节奏，已含步行与等待缓冲。景点实景与门票信息见下一节。</p>
 
     <div class="tabs" id="dayTabs">
       <button class="tab active" data-day="1"><span class="d">9/25 周五</span><span class="t">老城世遗</span></button>
@@ -317,7 +333,6 @@
       <button class="tab" data-day="3"><span class="d">9/27 周日</span><span class="t">娘惹 · 夜航</span></button>
     </div>
 
-    <!-- DAY 1 -->
     <div class="panel active" data-panel="1">
       <div class="callout b" style="margin-top:0">
         <b>今天别硬撑。</b>凌晨 2 点才睡，上午睡饱再出发，效率反而最高。
@@ -325,143 +340,217 @@
       <div class="card" style="padding:16px 16px 2px">
         <div class="tl">
           <div class="ti"><div class="tm">01:30</div><h4>🏨 入住酒店</h4><p>提前跟酒店确认好凌晨 01:30 能办入住。</p></div>
-
-          <div class="ti fd"><div class="tm">11:30</div><h4>🍜 早午餐：新街 / 汕头街茶餐室</h4><p>落地第一顿正经饭，点粿条汤或福建面（虾面）。</p></div>
-
+          <div class="ti fd"><div class="tm">11:30</div><h4>🍜 早午餐：新街 / 汕头街茶餐室</h4><p>落地第一顿正经饭，点粿条汤或福建面（虾面）。</p>
+            <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Kimberley+Street+George+Town+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城汕头街">🍽️ 大众点评</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城汕头街美食">📕 小红书</a></div></div>
           <div class="ti hi"><div class="tm">13:00</div><h4>🏛️ 侨生博物馆</h4><p>《小娘惹》取景地，薄荷绿外墙的峇峇娘惹豪宅。门票含免费导览，跟着听最省事。</p>
-            <a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Pinang+Peranakan+Mansion+Penang">📍 导航</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城侨生博物馆">📸 小红书</a></div>
-
+            <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Pinang+Peranakan+Mansion+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城侨生博物馆">🍽️ 大众点评</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城侨生博物馆">📕 小红书</a></div></div>
           <div class="ti hi"><div class="tm">15:00</div><h4>🎨 壁画街 + 姓周桥 + 爱情巷</h4><p>Armenian Street 看最著名的「姐弟共骑」，步行 5 分钟到姓周桥（华人海上木屋聚落）。午后偏晒，巷内可随时躲。</p>
-            <a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Armenian+Street+George+Town+Penang">📍 壁画街</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城壁画街">📸 小红书</a></div>
-
+            <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Armenian+Street+George+Town+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城壁画街">🍽️ 大众点评</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城壁画街">📕 小红书</a></div></div>
           <div class="ti"><div class="tm">17:00</div><h4>😴 回酒店小憩</h4><p>补一觉，晚上才有精力逛夜市。</p></div>
-
-          <div class="ti"><div class="tm">18:30</div><h4>⛪ 圣乔治教堂 · 康华丽堡 · 海滨</h4><p>白色英式教堂与海边星形古堡，傍晚光线舒服。</p></div>
-
+          <div class="ti"><div class="tm">18:30</div><h4>⛪ 圣乔治教堂 · 康华丽堡 · 海滨</h4><p>白色英式教堂与海边星形古堡，傍晚光线舒服。</p>
+            <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Fort+Cornwallis+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城康华丽堡">🍽️ 大众点评</a></div></div>
           <div class="ti fd"><div class="tm">19:15</div><h4>🌙 新关仔角夜市</h4><p>一次吃齐：炭烧炒粿条（加鸭蛋更香）、亚参叻沙、蚝煎、煎蕊、现烤海鲜。</p>
-            <a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Gurney+Drive+Food+Centre+Penang">📍 导航</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城新关仔角夜市">📸 小红书</a></div>
-
+            <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Gurney+Drive+Food+Centre+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城新关仔角夜市">🍽️ 大众点评</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城新关仔角夜市">📕 小红书</a></div></div>
           <div class="ti"><div class="tm">21:00</div><h4>回酒店</h4><p>明天要上山，今晚早点睡。</p></div>
         </div>
       </div>
     </div>
 
-    <!-- DAY 2 -->
     <div class="panel" data-panel="2">
       <div class="callout p" style="margin-top:0">
         <b>周六是升旗山排队高峰</b>，缆车可能等 1 小时以上，建议买快速通道票，或 09:00 前到缆车站。
       </div>
       <div class="card" style="padding:16px 16px 2px">
         <div class="tl">
-          <div class="ti fd"><div class="tm">07:00</div><h4>☕ 早餐：多春茶室</h4><p>炭烤面包 + 半熟蛋 + 海南咖啡。常要排队，7:30 前到最稳。</p></div>
-
-          <div class="ti"><div class="tm">08:00</div><h4>🚗 Grab 前往升旗山缆车站</h4><p>定位选「Penang Hill Lower Station」（山脚站），别订到山顶入口。</p></div>
-
+          <div class="ti fd"><div class="tm">07:00</div><h4>☕ 早餐：多春茶室</h4><p>炭烤面包 + 半熟蛋 + 海南咖啡。常要排队，7:30 前到最稳。</p>
+            <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Toh+Soon+Cafe+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城多春茶室">🍽️ 大众点评</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城多春茶室">📕 小红书</a></div></div>
+          <div class="ti"><div class="tm">08:00</div><h4>🚗 Grab 前往升旗山缆车站</h4><p>定位选「Penang Hill Lower Station」（山脚站），别订到山顶入口。</p>
+            <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Penang+Hill+Lower+Station">📍 导航</a></div></div>
           <div class="ti hi"><div class="tm">09:00</div><h4>🚞 升旗山 + The Habitat</h4><p>百年缆车上山，山顶俯瞰乔治市与槟威大桥。强烈建议加买 The Habitat——树冠步道与天空步道是这里最值得的一段。山顶凉几度，带件薄外套。</p>
-            <a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Penang+Hill+Lower+Station">📍 导航</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城升旗山The+Habitat">📸 小红书</a></div>
-
-          <div class="ti fd"><div class="tm">12:30</div><h4>🍜 亚依淡亚参叻沙</h4><p>槟城叻沙的「祖师爷」，酸辣开胃。<b>上午开摊、卖完即收</b>，若已收摊就吃巴刹周边面摊。</p></div>
-
+            <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Penang+Hill+Lower+Station">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城升旗山">🍽️ 大众点评</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城升旗山The+Habitat">📕 小红书</a></div></div>
+          <div class="ti fd"><div class="tm">12:30</div><h4>🍜 亚依淡亚参叻沙</h4><p>槟城叻沙的「祖师爷」，酸辣开胃。<b>上午开摊、卖完即收</b>，若已收摊就吃巴刹周边面摊。</p>
+            <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Air+Itam+Laksa+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城亚参叻沙">🍽️ 大众点评</a></div></div>
           <div class="ti hi"><div class="tm">13:45</div><h4>🛕 极乐寺</h4><p>东南亚规模最大的华人佛寺之一，依山而建。含七层万佛塔与巨型观音圣像，寺内斜坡可步行或搭小缆车。<b>着装需遮肩遮膝。</b></p>
-            <a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Kek+Lok+Si+Temple+Penang">📍 导航</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城极乐寺">📸 小红书</a></div>
-
+            <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Kek+Lok+Si+Temple+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城极乐寺">🍽️ 大众点评</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城极乐寺">📕 小红书</a></div></div>
           <div class="ti"><div class="tm">15:45</div><h4>🚗 前往峇都丁宜海滩</h4><p>穿岛北行，约 30–40 分钟，路上会经过槟城最长的海岸公路。</p></div>
-
           <div class="ti hi"><div class="tm">16:30</div><h4>🏖️ 峇都丁宜海滩</h4><p>槟城最成熟的海滨度假区，椰林成排，看日落的好位置。海水一般，重点在氛围。</p>
-            <a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Batu+Ferringhi+Beach+Penang">📍 导航</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=峇都丁宜海滩">📸 小红书</a></div>
-
-          <div class="ti"><div class="tm">18:00</div><h4>🛍️ 峇都丁宜夜市</h4><p>沙滩旁的手工艺品、服饰摊档，价格可议。</p></div>
-
+            <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Batu+Ferringhi+Beach+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城峇都丁宜海滩">🍽️ 大众点评</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=峇都丁宜海滩">📕 小红书</a></div></div>
+          <div class="ti"><div class="tm">18:00</div><h4>🛍️ 峇都丁宜夜市</h4><p>沙滩旁的手工艺品、服饰摊档，价格可议。</p>
+            <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Batu+Ferringhi+Night+Market+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城峇都丁宜夜市">🍽️ 大众点评</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=峇都丁宜夜市">📕 小红书</a></div></div>
           <div class="ti fd"><div class="tm">19:45</div><h4>🌙 汕头街夜市</h4><p>槟城「美食灵魂」。必点：炒粿条、蚝煎、四果汤、糖水，再配一碗卤味。</p>
-            <a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Kimberley+Street+Food+Penang">📍 导航</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城汕头街美食">📸 小红书</a></div>
-
+            <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Kimberley+Street+Food+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城汕头街">🍽️ 大众点评</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城汕头街美食">📕 小红书</a></div></div>
           <div class="ti"><div class="tm">21:30</div><h4>回酒店</h4><p>今晚把大部分行李收好。</p></div>
         </div>
       </div>
     </div>
 
-    <!-- DAY 3 -->
     <div class="panel" data-panel="3">
       <div class="callout" style="margin-top:0">
         <b>白天玩 + 深夜飞的双段日。</b>关键不是玩多少，而是 <b>20:30 前必须回酒店取行李、冲凉换衣</b>——要在飞机上过夜。
       </div>
       <div class="card" style="padding:16px 16px 2px">
         <div class="tl">
-          <div class="ti fd"><div class="tm">08:00</div><h4>🥟 早茶：点心楼</h4><p>烧卖、虾饺、叉烧包配一壶茶；老字号多在 07:00 前后开档。</p></div>
-
+          <div class="ti fd"><div class="tm">08:00</div><h4>🥟 早茶：点心楼</h4><p>烧卖、虾饺、叉烧包配一壶茶；老字号多在 07:00 前后开档。</p>
+            <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=dim+sum+George+Town+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城点心">🍽️ 大众点评</a></div></div>
           <div class="ti hi"><div class="tm">09:30</div><h4>💙 蓝屋 · 张弼士故居</h4><p>通体「东方靛蓝」外墙的百年豪宅。<b>内部现为精品酒店，参观必须参加定时导览</b>，名额有限，建议前一天先确认场次。</p>
-            <a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Cheong+Fatt+Tze+Mansion+Penang">📍 导航</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城蓝屋张弼士故居">📸 小红书</a></div>
-
-          <div class="ti"><div class="tm">11:00</div><h4>🛕 小印度 + 新街 + 老城漫步</h4><p>香料店、印度庙、新街骑楼街景，全程步行可达，是最舒服的一段 Citywalk。</p></div>
-
+            <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Cheong+Fatt+Tze+Mansion+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城蓝屋">🍽️ 大众点评</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城蓝屋张弼士故居">📕 小红书</a></div></div>
+          <div class="ti"><div class="tm">11:00</div><h4>🛕 小印度 + 新街 + 老城漫步</h4><p>香料店、印度庙、新街骑楼街景，全程步行可达，是最舒服的一段 Citywalk。</p>
+            <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Little+India+George+Town+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城小印度">🍽️ 大众点评</a></div></div>
           <div class="ti fd"><div class="tm">12:30</div><h4>🍜 午餐 + 伴手礼采购</h4><p>最后一顿可以奢侈一点，选家娘惹菜馆。伴手礼：豆蔻油、白咖喱面/虾面酱料包、淡汶饼、豆沙饼、白咖啡。</p>
-            <a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城伴手礼">📸 小红书</a></div>
-
+            <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Nyonya+restaurant+George+Town+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城娘惹菜">🍽️ 大众点评</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城伴手礼">📕 小红书</a></div></div>
           <div class="ti"><div class="tm">14:00</div><h4>😴 回酒店：收拾 + 冲凉 + 补眠</h4><p>今天最值钱的两小时。需要保留 9/27 当晚的房间才用得上（见住宿一节）。</p></div>
-
-          <div class="ti"><div class="tm">16:30</div><h4>🌇 可选：姓氏桥日落 / The Top 观景台</h4><p>体力够就再出门；不想动就在酒店休息。</p></div>
-
-          <div class="ti fd"><div class="tm">18:30</div><h4>🍽️ 晚餐：娘惹菜馆</h4><p>叻沙、咖喱鸡、阿杂、黑果焖鸡，正襟危坐收个尾。</p></div>
-
+          <div class="ti"><div class="tm">16:30</div><h4>🌇 可选：姓氏桥日落 / The Top 观景台</h4><p>体力够就再出门；不想动就在酒店休息。</p>
+            <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=The+Top+Komtar+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城光大The+Top">🍽️ 大众点评</a></div></div>
+          <div class="ti fd"><div class="tm">18:30</div><h4>🍽️ 晚餐：娘惹菜馆</h4><p>叻沙、咖喱鸡、阿杂、黑果焖鸡，正襟危坐收个尾。</p>
+            <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Nyonya+restaurant+George+Town+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城娘惹菜">🍽️ 大众点评</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城娘惹菜">📕 小红书</a></div></div>
           <div class="ti hi"><div class="tm">20:30</div><h4>🧳 取行李 · 冲凉 · 换衣服</h4><p>颈枕、眼罩、薄外套放随身包；充电宝必须随身、不可托运。</p></div>
-
           <div class="ti"><div class="tm">21:15</div><h4>🚗 出发前往机场</h4><p>车程 25–35 分钟，雨天易堵，务必留足缓冲。</p></div>
-
-          <div class="ti"><div class="tm">22:00</div><h4>✈️ 抵达槟城机场</h4><p>提前 3 小时到。凌晨航班值机柜台可能晚于 22:00 开放，先在出发层等候区休息，别走远。</p></div>
-
+          <div class="ti"><div class="tm">22:00</div><h4>✈️ 抵达槟城机场</h4><p>提前 3 小时到。凌晨航班值机柜台可能晚于 22:00 开放，先在出发层等候区休息，别走远。</p>
+            <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Penang+International+Airport">📍 导航</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城机场过夜">📕 小红书</a></div></div>
           <div class="ti"><div class="tm">01:00</div><h4>🛫 UO769 起飞 → 04:55 抵港 T1</h4><p>航程 3 小时 55 分，上机就睡。抵港后机场快线首班约 05:50。</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== 景点速查 ========== -->
+  <!-- ========== 03 景点介绍 ========== -->
   <section id="sights">
-    <div class="s-head"><span class="idx">03</span><h2>景点速查</h2></div>
-    <p class="s-desc">门票与开放时间来自公开资料，景区调价频繁，以现场为准。</p>
+    <div class="s-head"><span class="idx">03</span><h2>景点介绍</h2></div>
+    <p class="s-desc">七个必去景点，含实景、门票与建议停留时间。每张卡片都配了 Google 导航与大众点评搜索入口。</p>
 
-    <div class="kv">
-      <div class="kv-row"><span class="k">侨生博物馆<small>《小娘惹》取景地</small></span><span class="v">成人 <b>RM30</b>（含导览）<br>09:30–17:30 · 1.5h</span></div>
-      <div class="kv-row"><span class="k">壁画街 + 姓周桥<small>含 52 座铁线雕塑</small></span><span class="v"><b>免费</b><br>全天 · 1.5–2h</span></div>
-      <div class="kv-row"><span class="k">蓝屋 张弼士故居<small>需跟定时导览，名额有限</small></span><span class="v">约 <b>RM25</b><br>场次有限 · 1h</span></div>
-      <div class="kv-row"><span class="k">升旗山 + The Habitat<small>周六排队久，建议快速通道</small></span><span class="v">缆车往返 <b>RM30–40</b>／快速通道约 RM80<br>The Habitat 另购 · 3–3.5h</span></div>
-      <div class="kv-row"><span class="k">极乐寺<small>着装需遮肩遮膝</small></span><span class="v">寺庙<b>免门票</b>；万佛塔 RM2、观音区 RM2、斜坡缆车往返 RM6<br>08:30–17:30 · 1.5–2h</span></div>
-      <div class="kv-row"><span class="k">峇都丁宜海滩<small>可玩香蕉船、水上摩托</small></span><span class="v"><b>免费</b><br>全天 · 日落约 19:00</span></div>
-      <div class="kv-row"><span class="k">圣乔治教堂 / 康华丽堡<small>外观快闪即可</small></span><span class="v">外观<b>免费</b><br>白天 · 30–40min</span></div>
-      <div class="kv-row"><span class="k">新关仔角夜市<small>海滨夜市，摊档多</small></span><span class="v">18:00 后开档 · 1.5h</span></div>
-      <div class="kv-row"><span class="k">汕头街夜市<small>老城烟火气最浓</small></span><span class="v">傍晚起 · 1.5h</span></div>
+    <div class="sight">
+      <div class="photo"><img src="images/street-art.jpg" alt="乔治市壁画街" onerror="this.parentNode.classList.add('ph-fail')"><span class="cap">壁画街 · Armenian Street</span></div>
+      <div class="sight-body">
+        <h4>壁画街 <span class="tag b">Day 1</span></h4>
+        <p>乔治市街头艺术的起点。2012 年立陶宛艺术家 Ernest Zacharevic 在此创作，把老墙变成画布，其中「姐弟共骑」最出名。全城共 52 座铁线雕塑与数十幅壁画，散落在老街巷弄里，边走边找本身就是乐趣。</p>
+        <div class="sight-meta"><span class="g">免费</span><span>全天开放</span><span>建议 1.5–2 小时</span><span>傍晚光线最好</span></div>
+        <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Armenian+Street+George+Town+Penang">📍 Google 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城壁画街">🍽️ 大众点评</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城壁画街">📕 小红书</a></div>
+      </div>
+    </div>
+
+    <div class="sight">
+      <div class="photo"><img src="images/clan-jetty.jpg" alt="姓氏桥水上木屋" onerror="this.parentNode.classList.add('ph-fail')"><span class="cap">姓氏桥 · 华人海上木屋聚落</span></div>
+      <div class="sight-body">
+        <h4>姓氏桥 <span class="tag b">Day 1</span></h4>
+        <p>建在海上的华人聚落，百年前福建移民按姓氏分桥而居，至今仍有人家住在木栈道上。姓周桥最热闹、也最上镜，另有姓林桥、姓李桥等共 6 座，越靠里越安静、生活气息越浓。</p>
+        <div class="sight-meta"><span class="g">免费</span><span>全天开放</span><span>建议 40 分钟</span></div>
+        <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Chew+Jetty+Clan+Jetty+Penang">📍 Google 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城姓氏桥">🍽️ 大众点评</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城姓氏桥">📕 小红书</a></div>
+      </div>
+    </div>
+
+    <div class="sight">
+      <div class="photo"><img src="images/peranakan.jpg" alt="侨生博物馆" onerror="this.parentNode.classList.add('ph-fail')"><span class="cap">侨生博物馆 · 峇峇娘惹豪宅</span></div>
+      <div class="sight-body">
+        <h4>侨生博物馆 <span class="tag b">Day 1</span></h4>
+        <p>《小娘惹》取景地，薄荷绿外墙的十九世纪娘惹豪宅。室内完整保留娘惹家族的家具、瓷器、珠绣与服饰，中西合璧的细节多到看不完。门票含免费导览，跟着听比自己逛有意思得多，是理解「峇峇娘惹」文化最快的一站。</p>
+        <div class="sight-meta"><span class="g">成人 RM30（含导览）</span><span>09:30–17:30</span><span>建议 1.5 小时</span></div>
+        <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Pinang+Peranakan+Mansion+Penang">📍 Google 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城侨生博物馆">🍽️ 大众点评</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城侨生博物馆">📕 小红书</a></div>
+      </div>
+    </div>
+
+    <div class="sight">
+      <div class="photo"><img src="images/penang-hill.jpg" alt="升旗山缆车" onerror="this.parentNode.classList.add('ph-fail')"><span class="cap">升旗山 · 百年缆车</span></div>
+      <div class="sight-body">
+        <h4>升旗山 <span class="tag">Day 2</span></h4>
+        <p>槟城制高点，乘百年缆车爬升到山顶，可俯瞰乔治市全景与槟威大桥。强烈建议加买 The Habitat 生态公园——在 1.3 亿年热带雨林上方走树冠步道与天空步道，是整座山最值得的一段。山顶比市区凉几度，带件薄外套。</p>
+        <div class="sight-meta"><span class="g">缆车往返 RM30–40</span><span>快速通道约 RM80</span><span>The Habitat 另购</span><span>06:30–23:00</span><span>建议 3–3.5 小时</span></div>
+        <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Penang+Hill+Lower+Station">📍 Google 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城升旗山">🍽️ 大众点评</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城升旗山The+Habitat">📕 小红书</a></div>
+      </div>
+    </div>
+
+    <div class="sight">
+      <div class="photo"><img src="images/kek-lok-si.jpg" alt="极乐寺" onerror="this.parentNode.classList.add('ph-fail')"><span class="cap">极乐寺 · 依山而建的百年佛寺</span></div>
+      <div class="sight-body">
+        <h4>极乐寺 <span class="tag">Day 2</span></h4>
+        <p>东南亚规模最大的华人佛寺之一，依山层层叠叠。七层万佛塔融合中、泰、缅三种建筑风格，旁边立着巨型观音圣像。寺庙本身免门票，只有万佛塔、观音区等分项小额购票；寺内斜坡可步行或搭小缆车。</p>
+        <div class="sight-meta"><span class="g">免门票</span><span>万佛塔 RM2 / 观音区 RM2 / 斜坡缆车往返 RM6</span><span>08:30–17:30</span><span>建议 1.5–2 小时</span><span>需遮肩遮膝</span></div>
+        <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Kek+Lok+Si+Temple+Penang">📍 Google 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城极乐寺">🍽️ 大众点评</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城极乐寺">📕 小红书</a></div>
+      </div>
+    </div>
+
+    <div class="sight">
+      <div class="photo"><img src="images/batu-ferringhi.jpg" alt="峇都丁宜海滩" onerror="this.parentNode.classList.add('ph-fail')"><span class="cap">峇都丁宜海滩</span></div>
+      <div class="sight-body">
+        <h4>峇都丁宜海滩 <span class="tag">Day 2</span></h4>
+        <p>槟城最成熟的海滨度假区，沙滩平缓、椰林成排，是看日落的好位置。海水品质一般，重点在氛围——点杯芒果冰沙坐在海边发呆就很值。也可体验香蕉船、水上摩托；沙滩旁的夜市每天营业。</p>
+        <div class="sight-meta"><span class="g">免费</span><span>全天开放</span><span>日落约 19:00</span><span>建议 1.5–2 小时</span></div>
+        <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Batu+Ferringhi+Beach+Penang">📍 Google 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城峇都丁宜海滩">🍽️ 大众点评</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=峇都丁宜海滩">📕 小红书</a></div>
+      </div>
+    </div>
+
+    <div class="sight">
+      <div class="photo"><img src="images/blue-mansion.jpg" alt="蓝屋 张弼士故居" onerror="this.parentNode.classList.add('ph-fail')"><span class="cap">蓝屋 · 张弼士故居</span></div>
+      <div class="sight-body">
+        <h4>蓝屋 · 张弼士故居 <span class="tag">Day 3</span></h4>
+        <p>通体「东方靛蓝」的百年豪宅，中西合璧建筑的代表作，曾在《疯狂亚洲富豪》中出镜。注意：内部现为精品酒店，参观必须参加定时导览，场次与名额都有限，建议前一天先确认当天时间并提前到场买票。</p>
+        <div class="sight-meta"><span class="g">约 RM25</span><span>需参加定时导览</span><span>建议 1 小时</span></div>
+        <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Cheong+Fatt+Tze+Mansion+Penang">📍 Google 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城蓝屋">🍽️ 大众点评</a><a class="lk x" href="https://www.xiaohongshu.com/search_result?keyword=槟城蓝屋张弼士故居">📕 小红书</a></div>
+      </div>
     </div>
   </section>
 
-  <!-- ========== 美食推荐 ========== -->
+  <!-- ========== 04 美食推荐 ========== -->
   <section id="food">
     <div class="s-head"><span class="idx">04</span><h2>美食推荐</h2></div>
     <p class="s-desc">槟城街头小吃本身就是世界文化遗产的一部分。街头摊档多在 RM4–15，茶餐室与餐馆人均 RM15–60。</p>
 
-    <div class="card pad">
-      <div class="fgrp">
-        <div class="h">招牌必吃 · 五件套</div>
-        <div class="fr"><span class="nm"><b>亚参叻沙 Asam Laksa</b><small>Air Itam 亚依淡｜上午开摊，售完即止</small></span><span class="pv">RM8–12</span></div>
-        <div class="fr"><span class="nm"><b>炭烧炒粿条</b><small>汕头街 / 新关仔角｜加「鸭蛋」更香</small></span><span class="pv">RM8–15</span></div>
-        <div class="fr"><span class="nm"><b>福建面（虾面）</b><small>新街茶餐室｜虾汤熬底，鲜味极浓</small></span><span class="pv">RM8–12</span></div>
-        <div class="fr"><span class="nm"><b>蚝煎</b><small>汕头街夜市｜木薯粉浆裹鲜蚝，铁板现煎</small></span><span class="pv">RM10–15</span></div>
-        <div class="fr"><span class="nm"><b>煎蕊 Cendol</b><small>槟城律老字号｜椰糖 + 椰浆 + 绿粉条</small></span><span class="pv">RM4–6</span></div>
+    <div class="foodgrid">
+      <div class="fcard2">
+        <div class="photo"><img src="images/asam-laksa.jpg" alt="亚参叻沙" onerror="this.parentNode.classList.add('ph-fail')"></div>
+        <div class="fb"><h4>亚参叻沙</h4><div class="fp">RM8–12</div><div class="fn">Air Itam 摊位｜上午开摊，卖完即收</div>
+          <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Air+Itam+Laksa+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城亚参叻沙">🍽️ 点评</a></div></div>
       </div>
+      <div class="fcard2">
+        <div class="photo"><img src="images/char-kway-teow.jpg" alt="炭烧炒粿条" onerror="this.parentNode.classList.add('ph-fail')"></div>
+        <div class="fb"><h4>炭烧炒粿条</h4><div class="fp">RM8–15</div><div class="fn">汕头街 / 新关仔角｜加「鸭蛋」更香</div>
+          <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Char+Kway+Teow+Kimberley+Street+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城炒粿条">🍽️ 点评</a></div></div>
+      </div>
+      <div class="fcard2">
+        <div class="photo"><img src="images/hokkien-mee.jpg" alt="福建面（虾面）" onerror="this.parentNode.classList.add('ph-fail')"></div>
+        <div class="fb"><h4>福建面（虾面）</h4><div class="fp">RM8–12</div><div class="fn">新街茶餐室｜虾汤熬底，鲜味极浓</div>
+          <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Hokkien+Mee+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城福建面">🍽️ 点评</a></div></div>
+      </div>
+      <div class="fcard2">
+        <div class="photo"><img src="images/cendol.jpg" alt="煎蕊 Cendol" onerror="this.parentNode.classList.add('ph-fail')"></div>
+        <div class="fb"><h4>煎蕊 Cendol</h4><div class="fp">RM4–6</div><div class="fn">槟城律老字号｜椰糖 + 椰浆 + 绿粉条</div>
+          <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Penang+Road+Famous+Teochew+Chendul">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城煎蕊">🍽️ 点评</a></div></div>
+      </div>
+      <div class="fcard2">
+        <div class="photo"><img src="images/gurney.jpg" alt="新关仔角夜市" onerror="this.parentNode.classList.add('ph-fail')"></div>
+        <div class="fb"><h4>新关仔角夜市</h4><div class="fp">人均 RM25–40</div><div class="fn">海滨夜市｜18:00 后开档，一次吃齐</div>
+          <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Gurney+Drive+Food+Centre+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城新关仔角夜市">🍽️ 点评</a></div></div>
+      </div>
+      <div class="fcard2">
+        <div class="photo"><img src="images/kopitiam.jpg" alt="茶餐室 Kopitiam" onerror="this.parentNode.classList.add('ph-fail')"></div>
+        <div class="fb"><h4>传统茶餐室</h4><div class="fp">人均 RM10–15</div><div class="fn">炭烤面包 + 半熟蛋 + 海南咖啡</div>
+          <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Toh+Soon+Cafe+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城多春茶室">🍽️ 点评</a></div></div>
+      </div>
+    </div>
 
-      <div class="fgrp">
-        <div class="h">茶餐室 · 早餐与下午茶</div>
-        <div class="fr"><span class="nm"><b>炭烤面包 + 半熟蛋 + 海南咖啡</b><small>多春茶室｜常排队，7:30 前最稳</small></span><span class="pv">RM10–15</span></div>
-        <div class="fr"><span class="nm"><b>粿条汤</b><small>椰脚 / 天皇鸡脚粿条汤｜清汤系，配鸡脚更地道</small></span><span class="pv">RM8–12</span></div>
-        <div class="fr"><span class="nm"><b>广式点心</b><small>老字号点心楼｜07:00 前后开档</small></span><span class="pv">RM15–25</span></div>
-        <div class="fr"><span class="nm"><b>白咖喱面 / 海南鸡饭</b><small>茶餐室常见主食｜白咖喱面是槟城发明</small></span><span class="pv">RM8–15</span></div>
-      </div>
-
-      <div class="fgrp">
-        <div class="h">夜市 · 糖水与正餐</div>
-        <div class="fr"><span class="nm"><b>四果汤 / 糖水</b><small>汕头街｜饭后收尾首选</small></span><span class="pv">RM5–8</span></div>
-        <div class="fr"><span class="nm"><b>烤海鲜 / 沙爹</b><small>新关仔角｜按份计价，点前先问价</small></span><span class="pv">RM15–40</span></div>
-        <div class="fr"><span class="nm"><b>娘惹菜正餐</b><small>娘惹餐馆｜叻沙、咖喱鸡、阿杂、黑果焖鸡</small></span><span class="pv">RM30–60</span></div>
-      </div>
+    <h3 style="font-size:15px;margin:22px 0 10px">还有这些别错过</h3>
+    <div class="fr-w">
+      <div class="ftop"><span><b>蚝煎</b>　<small>汕头街夜市｜木薯粉浆裹鲜蚝，铁板现煎</small></span><span class="pv">RM10–15</span></div>
+      <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Kimberley+Street+Food+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城蚝煎">🍽️ 点评</a></div>
+    </div>
+    <div class="fr-w">
+      <div class="ftop"><span><b>粿条汤</b>　<small>椰脚 / 天皇鸡脚粿条汤｜清汤系，配鸡脚更地道</small></span><span class="pv">RM8–12</span></div>
+      <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Pitt+Street+Koay+Teow+Thng+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城粿条汤">🍽️ 点评</a></div>
+    </div>
+    <div class="fr-w">
+      <div class="ftop"><span><b>广式点心</b>　<small>老字号点心楼｜07:00 前后开档</small></span><span class="pv">RM15–25</span></div>
+      <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=dim+sum+George+Town+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城点心">🍽️ 点评</a></div>
+    </div>
+    <div class="fr-w">
+      <div class="ftop"><span><b>白咖喱面 / 海南鸡饭</b>　<small>茶餐室常见主食｜白咖喱面是槟城发明</small></span><span class="pv">RM8–15</span></div>
+      <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=White+Curry+Mee+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城白咖喱面">🍽️ 点评</a></div>
+    </div>
+    <div class="fr-w">
+      <div class="ftop"><span><b>四果汤 / 糖水</b>　<small>汕头街｜饭后收尾首选</small></span><span class="pv">RM5–8</span></div>
+      <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Kimberley+Street+Food+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城四果汤">🍽️ 点评</a></div>
+    </div>
+    <div class="fr-w">
+      <div class="ftop"><span><b>娘惹菜正餐</b>　<small>娘惹餐馆｜叻沙、咖喱鸡、阿杂、黑果焖鸡</small></span><span class="pv">RM30–60</span></div>
+      <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Nyonya+restaurant+George+Town+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城娘惹菜">🍽️ 点评</a></div>
     </div>
 
     <div class="callout">
@@ -474,7 +563,7 @@
     </div>
   </section>
 
-  <!-- ========== 住宿推荐 ========== -->
+  <!-- ========== 05 住宿推荐 ========== -->
   <section id="stay">
     <div class="s-head"><span class="idx">05</span><h2>住宿推荐</h2></div>
     <p class="s-desc">强烈建议住<b>乔治市世遗区</b>——壁画街、姓氏桥、侨生博物馆、蓝屋、夜市都在步行或 10 分钟车程内。</p>
@@ -484,16 +573,19 @@
         <h4>💰 经济型</h4>
         <div class="p2">约 RM150 / 晚</div>
         <p>Chulia Street、Love Lane 一带的民宿与背包客栈。房间偏小、隔音一般，但位置极佳，老板通常很会推荐本地美食。</p>
+        <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Chulia+Street+George+Town+Penang">📍 地图</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城乔治市民宿">🍽️ 大众点评找房</a></div>
       </div>
       <div class="mini">
         <h4>🏨 舒适型（推荐）</h4>
         <div class="p2">约 RM350 / 晚</div>
         <p>世遗区内战前老屋改造的精品酒店，含早餐，保留骑楼天井与娘惹装饰。这个档位性价比最高。</p>
+        <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=boutique+hotel+George+Town+Penang">📍 地图</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城乔治市精品酒店">🍽️ 大众点评找房</a></div>
       </div>
       <div class="mini">
         <h4>✨ 豪华型</h4>
         <div class="p2">约 RM800 / 晚</div>
         <p>Eastern &amp; Oriental（百年殖民风海滨经典）、The Edison 等翻新世遗建筑酒店，适合加一点仪式感。</p>
+        <div class="lks"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=Eastern+and+Oriental+Hotel+Penang">📍 导航</a><a class="lk d" href="https://www.dianping.com/search/keyword/2360/0_槟城东方大酒店">🍽️ 点评</a></div>
       </div>
       <div class="mini">
         <h4>📅 要订几晚</h4>
@@ -506,7 +598,7 @@
     </div>
   </section>
 
-  <!-- ========== 实用贴士 ========== -->
+  <!-- ========== 06 实用贴士 ========== -->
   <section id="tips">
     <div class="s-head"><span class="idx">06</span><h2>实用贴士</h2></div>
 
@@ -518,6 +610,15 @@
       <div class="mini"><h4>🧳 行李</h4><p>已含 <b>1 件 20kg 托运</b>。订单显示无免费手提行李，登机箱需提早在 App 加购，现场买贵很多。</p></div>
       <div class="mini"><h4>🔌 插座</h4><p>英标 G 型、240V，<b>与香港完全一致，免转换头</b>。老屋酒店插座少，带个多口 USB 充电头。</p></div>
     </div>
+
+    <div class="callout b">
+      <b>三个链接怎么用</b>
+      <ul>
+        <li><b>📍 Google 导航</b>——点开直接在地图定位，适合导航找路。</li>
+        <li><b>🍽️ 大众点评</b>——直跳槟城站（城市 ID 2360）的搜索结果，可看评价、人均、营业时间；手机端点开会唤起 App。</li>
+        <li><b>📕 小红书</b>——看打卡照与最新探店笔记，判断值不值得去。</li>
+      </ul>
+    </div>
   </section>
 </main>
 
@@ -528,7 +629,7 @@
     <div class="big">祝你吃得开心 · 走得从容 🌴</div>
     香港 → 槟城 3 日攻略｜9/24 夜出发 · 9/28 凌晨返港<br>
     基于已出票航班 UO768 / UO769 · 生成日期 2026-09-20<br>
-    门票与价格为公开资料参考区间，出行前请以官方与实时报价复核。
+    实景照片来自 Wikimedia Commons（免费授权），门票与价格为公开资料参考区间，出行前请复核。
   </div>
 </footer>
 
@@ -546,7 +647,6 @@
       window.scrollTo({ top: y, behavior: 'smooth' });
     });
   });
-
   var top = document.getElementById('toTop');
   window.addEventListener('scroll', function(){
     top.classList.toggle('show', window.pageYOffset > 600);
